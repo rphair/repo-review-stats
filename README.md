@@ -6,4 +6,4 @@ More detail about how to use the scripts is forthcoming: pending a decision abou
 
 In the meantime see the `rr-` scripts and their comments to see more about how it works, and the dated `/reports` subdirectories with data sets and the resulting reports.  This is designed for reproducible results and so the same data set will produce the same report for everyone... and API data collection from GitHub can also be independently verified by comparing the larger intermediate files the `rr-collect` script generates.
 
-Stay tuned through first week of August & send me any feedback in the meantime... @rphair
+Stay tuned through first week of August & send me any feedback in the meantime... **[@rphair](https://github.com/rphair)**
