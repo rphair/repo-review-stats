@@ -1,5 +1,5 @@
-### initial proof-of-concept for KPI & project planning
-#### pending some bug fixes for when GitHub API returns null data for deleted accounts
+### Initial proof-of-concept for KPI & project planning
+#### Pending some bug fixes for when GitHub API returns null data for deleted accounts
 
 Highlights:
 * [all-time CIP user review data so far by SIZE](report-all-size.md)
