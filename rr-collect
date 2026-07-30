@@ -1,0 +1,174 @@
+#!/usr/bin/env bash
+
+# rphair Tue 28 Jul 2026 20:44:32 EDT = baseline version (proof of concept)
+
+# Visualised for cardano-foundaction/CIPs GitHub repo: but should work anywhere.
+owner=cardano-foundation
+repo=CIPs
+
+# PREREQUISITES
+# - a UNIX-like environment, in terms of shell & filename references.
+# - get `gh` working in that environment according to: https://github.com/cli/cli#installation
+# --- this requires a GitHub token: but its privileges shouldn't matter (only needs read perms).
+# --- `gh` stores that token in your OS's key or certificate store: no need to code/use it here!
+
+# PRODUCES:
+# - an output files `reviews.txt` used in generating reports by these scripts OR something else.
+# --- This file is produced sorted *both* chronologically and alphabetically.
+# --- so if you want to report on a time interval: just delete the earliest / latest lines.
+# - diagnostic files, named so their data can be cross-referenced with GitHub UI features:
+# --- slurp* = concatendated JSON objects of the 4 data types of review data in GitHub repos
+issueBodies=slurp-issue-bodies.json
+issueComments=slurp-issue-comments.json
+reviewBodies=slurp-review-bodies.json
+reviewComments=slurp-review-comments.json
+# --- tmp* = intermediate file(s) usable to check partial results (e.g. a list of repo PRs)
+PRtmpNums=tmp-pr-numbers.txt
+# should be either `.txt` or `.csv` (based on human preview or interest in spreadsheet import)
+reviewList=reviews.txt
+
+# GitHub API constants
+APIheaders='-H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2026-03-10"'
+
+# If any command gets an error, *we* die with an error!
+# https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#The-Set-Builtin-1
+# AND we use -x to avoid a lot of echoing about what this command is doing.
+# -- if you want to know *why* a command is failing, come back here & read the comments! :)
+set -ex
+
+# If this fails, some error will indicate how to fix `gh` access to the API.  Reasons might be:
+# - `gh` is not installed yet
+# - you're not logged into `gh` (though web UI usually; collecting a token for further API access)
+gh auth status
+
+# API DATA COLLECTION: starting with the shortest queries... so if API breaks, it fails much earlier!
+# This has to happen in 4 cycles because of the 4 fundamental kinds of user-origin review data.
+
+# NOTES applicable to all these 4 API segments:
+# - We don't strictly have to extract each .body field since only really interested in length:
+# --- BUT it's a lot easier for admins to search for a comment fragment than the comment's deep link!
+# - Each .body object is obtained along with its calculated length; also not strictly necessary:
+# --- This also makes it easier to very the intermediate data set vs. just having a wall of numbers.
+# - The first 3 of these data types come from a single API query to the repository itself...
+# --- The 4th must be iterative: since reviews can only be extracted from each PR, not the repo.
+# - When adding parameters, the GET method is forced: otherwise `gh` uses POST and it fails.
+# - In both the API header & documentation comments, we're invoking a dated (current) API version.
+# --- This avoids things falling apart if new API is released requiring structural changes somehow.
+
+# 1) Issue bodies = the leading comments (OP = "original posting") of each issue & PR.
+#
+# NOTE this endpoint is rooted in /issues although pull requests also use this data structure.
+# https://docs.github.com/en/rest/issues/issues?apiVersion=2026-03-10#list-repository-issues
+#
+# While collecting repo data, we do 2 other things in the meantime:
+# - generate a link to each OP comment (from the GitHub ID) since the API only provides a *page* URL
+# - IF this is a pull request, append an extra key for the pull request number
+# --- This will be used later to get a list of PR numbers (to get the reviews from).
+gh api \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: 2026-03-10" \
+  --paginate --slurp \
+  --method GET -f state=all -f sort=created -f direction=asc \
+  https://api.github.com/repos/"$owner"/"$repo"/issues | \
+  jq '.[].[] |
+    (
+      {
+        created_at,
+        login: .user.login,
+        body,
+        length: .body | length,
+        html_url: .html_url + "#issue-" + (.id | tostring)
+      } +
+      if .pull_request then
+      {
+        pr_number: .number
+      }
+      else {} end
+    )' \
+  > "$issueBodies"
+
+# 2) Issue comments = all non-review comments in every issue & PR.
+#
+# NOTE this endpoint is rooted in /issues although pull requests share this data structure as well.
+# https://docs.github.com/en/rest/issues/comments?apiVersion=2026-03-10#list-issue-comments-for-a-repository
+# relative execution time = 30 seconds
+gh api \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: 2026-03-10" \
+  --paginate --slurp \
+  https://api.github.com/repos/"$owner"/"$repo"/issues/comments | \
+  jq '.[].[] |
+      {
+        created_at,
+        login: .user.login,
+        body,
+        length: .body | length,
+        html_url
+      }' \
+  > "$issueComments"
+
+# 3) Review comments = entries under a PR review: following a "context diff" & review body
+#
+# https://docs.github.com/en/rest/pulls/comments?apiVersion=2026-03-10#list-review-comments-in-a-repository
+# relative execution time = 7 minutes
+gh api \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: 2026-03-10" \
+  --paginate --slurp \
+  https://api.github.com/repos/"$owner"/"$repo"/pulls/comments | \
+  jq '.[].[] |
+      {
+        created_at,
+        login: .user.login,
+        body,
+        length: .body | length,
+        html_url
+      }' \
+  > "$reviewComments"
+
+# 4) Review bodies = individual PR reviews: often creating "context diff" & place for comments below
+# relative execution time = 1/2 second per PR (at reference time ~= 1000 PRs) = 8 minutes
+
+# 4a) get PR list first (no API query needed; we've already extracted this & happens instantaneously)
+cat "$issueBodies" | jq 'select(.pr_number) | .pr_number' > "$PRtmpNums"
+
+# 4b) iteratively obtain a set of reviews for each PR
+# the -x is oppressive here to watch the API query so many times
+set +x
+
+# Note the timestamp generally in `created_at` is under a slightly different key in this object:
+# https://docs.github.com/en/rest/pulls/reviews?apiVersion=2026-03-10#list-reviews-for-a-pull-request
+rm -f "$reviewBodies"   # since we're appending each result
+for pr in `cat "$PRtmpNums"`; do
+  echo :::: getting review bodies from PR $pr;
+  gh api \
+    -H "Accept: application/vnd.github+json" \
+    -H "X-GitHub-Api-Version: 2026-03-10" \
+    --paginate --slurp \
+    https://api.github.com/repos/"$owner"/"$repo"/pulls/$pr/reviews | \
+    jq '.[].[] |
+      {
+        created_at: .submitted_at,
+        login: .user.login,
+        body,
+        length: .body | length,
+        html_url
+      }' \
+    >> "$reviewBodies"
+    # ^ observe this is an "append" since we're calling repeatedly
+  done
+
+set -x
+
+# FINALLY collate all the JSON results into a single, space-delimited text file.
+# Why not JSON?
+# 1) Your spreadsheet program probably can't read it, but can import this file as CSV.
+# 2) Most text editors (at least on Linux) will cleanly display the URL & make it clickable;
+#     which enables easy easy point & click verification of a sample of comments through history.
+cat "$issueBodies" "$issueComments" "$reviewBodies" "$reviewComments" | \
+  jq --slurp --raw-output '
+    sort_by(.created_at) | .[]
+      | del (.body) 
+      | del (.pr_number) 
+      | join (" ")' \
+  > "$finalOutput"
