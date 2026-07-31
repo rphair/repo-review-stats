@@ -1,0 +1,1 @@
+Data sets (output from `rr-collect`) should be put here (`*.txt`) — paired with their results files (`*.md`) — identified by repo handle + UTC date as formatted on last line of each (chronologically sorted) collection.
