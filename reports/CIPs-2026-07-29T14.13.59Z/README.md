@@ -1,5 +1,5 @@
 ### Initial proof-of-concept for KPI & project planning
-#### Pending a quick fix for `rr-collect` (GitHub API returns null data for deleted accounts: only affecting 43 of over 26,000 reviews)
+#### Pending a quick fix for `rr-collect` (GitHub API returns null username for deleted accounts: only affecting 43 of over 26,000 reviews)
 
 Highlights:
 * [all-time CIP user review data so far by SIZE](report-all-size.md)
