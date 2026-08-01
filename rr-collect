@@ -64,6 +64,8 @@ gh auth status
 # - generate a link to each OP comment (from the GitHub ID) since the API only provides a *page* URL
 # - IF this is a pull request, append an extra key for the pull request number
 # --- This will be used later to get a list of PR numbers (to get the reviews from).
+#
+# relative execution time = 8 seconds
 gh api \
   -H "Accept: application/vnd.github+json" \
   -H "X-GitHub-Api-Version: 2026-03-10" \
