@@ -54,6 +54,8 @@ gh auth status
 # - When adding parameters, the GET method is forced: otherwise `gh` uses POST and it fails.
 # - In both the API header & documentation comments, we're invoking a dated (current) API version.
 # --- This avoids things falling apart if new API is released requiring structural changes somehow.
+# - `login: null` is returned for deleted accounts which display on GitHub as dummy user @ghost -
+# --- ... therefore we reconstruct such comments in our own user table by assigning `login: "ghost"`
 
 # 1) Issue bodies = the leading comments (OP = "original posting") of each issue & PR.
 #
@@ -76,7 +78,7 @@ gh api \
     (
       {
         created_at,
-        login: .user.login,
+        login: .user.login // "ghost",
         body,
         length: .body | length,
         html_url: .html_url + "#issue-" + (.id | tostring)
@@ -102,7 +104,7 @@ gh api \
   jq '.[].[] |
       {
         created_at,
-        login: .user.login,
+        login: .user.login // "ghost",
         body,
         length: .body | length,
         html_url
@@ -121,7 +123,7 @@ gh api \
   jq '.[].[] |
       {
         created_at,
-        login: .user.login,
+        login: .user.login // "ghost",
         body,
         length: .body | length,
         html_url
@@ -151,7 +153,7 @@ for pr in `cat "$PRtmpNums"`; do
     jq '.[].[] |
       {
         created_at: .submitted_at,
-        login: .user.login,
+        login: .user.login // "ghost",
         body,
         length: .body | length,
         html_url
