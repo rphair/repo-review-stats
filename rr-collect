@@ -175,4 +175,4 @@ cat "$issueBodies" "$issueComments" "$reviewBodies" "$reviewComments" | \
       | del (.body) 
       | del (.pr_number) 
       | join (" ")' \
-  > "$finalOutput"
+  > "$reviewList"
