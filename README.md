@@ -35,13 +35,13 @@ This is designed for reproducible results, so that:
 1. [GitHub CLI > Installation](https://github.com/cli/cli#installation): confirm that `gh status` produces a meaningful result.
 2. [`gh auth login`](https://cli.github.com/manual/gh_auth_login): confirm that `gh auth status` produces a meaningful result.
 
-TODO the usual method of running both scripts in sequence
+**TODO** (by end of day **2026-08-03**) the usual method of running both scripts in sequence
 
 ### Generating reports from shared data
 
 **Prerequisites**: none
 
-TODO bootstrapping report generation from an already uploaded `reviews.txt` file
+**TODO** (by end of day **2026-08-03**) bootstrapping report generation from an already uploaded `reviews.txt` file
 
 ## Verification of results
 
