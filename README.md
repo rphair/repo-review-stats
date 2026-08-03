@@ -76,7 +76,7 @@ In addition to `reviews.txt` feeding our reporting script, it can also be used b
 
 #### Why `gh`?
 
-i.e. _Why is this scripted on top of [GitHub CLI](https://github.com/cli/cli) rather than constructing API calls using a Javascript-like language + [`octokit`](https://github.com/octokit/octokit.js) to use the GitHub API more canonically?_
+i.e. _Why is this scripted on top of [GitHub CLI](https://github.com/cli/cli#github-cli) rather than constructing API calls using a Javascript-like language + [`octokit`](https://github.com/octokit/octokit.js) to use the GitHub API more canonically?_
 
 **Ease of setup**: GitHub users remain free to choose whichever [authentication method](https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api?apiVersion=2026-03-10) suits them best: especially since different repositories have different security assumptions.
 * It also normalises the problem of each user getting `gh` to work on _their own_ repository of reporting interest: without the complication of having to test their access through either these scripts or other GitHub API calls.
