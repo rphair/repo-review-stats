@@ -25,7 +25,7 @@ This is designed for reproducible results, so that:
 
 **Common prerequisites** to using any of the scripts by any method:
 * a UNIX-like environment, in terms of shell & filename references.
-* a recent version of `jq` (tested with `1.8` and [easily downloadable](github.com/jqlang/jq/releases/latest) if yours is older)
+* a recent version of `jq` (tested with `1.8` and [easily downloadable](https://github.com/jqlang/jq/releases/latest) if yours is older)
 
 #### Generating your own reports
 
