@@ -1,6 +1,8 @@
-## `repo-review-stats` - tabulate project reviewers by activity level
+# `repo-review-stats` - tabulate project reviewers by activity level
 
-This accumulates all repository postings — issues, PRs, comments, and reviews — then sorts these combined sets by contributor according to post count _and_ text volume.  All text comments are considered useful to peer review: as opposed to commits which are already tracked for each GitHub repo and have more traditional tools for performance analysis.
+This accumulates all repository postings — issues, PRs, comments, and reviews — then sorts these combined sets by contributor according to post count _and_ text volume.
+
+_Why?_  All text comments are considered useful to _peer review_: as opposed to commits which are already tracked for each GitHub repo and have more traditional tools for performance analysis.
 
 > [!NOTE]
 > Therefore this simply counts all _writing_ on a repo, since all of this is considered useful *in a peer review context*: as opposed to the "software development" context which considers this material irrelevant.
@@ -17,7 +19,7 @@ Division into two scripts is intended to keep these reports deterministic & repr
 
 Reference data collections & reports are in [`/reports`](./reports) for the reference projects at the time they were indexed: along with fixed reports for data subsets of interest to a project.
 
-### Usage
+## Usage
 
 This is designed for reproducible results, so that:
 * Multiple runs by different users will always produce the same `report.txt` from `rr-collect` (differing perhaps by any more recently posted comments at the end).
@@ -27,7 +29,7 @@ This is designed for reproducible results, so that:
 * a UNIX-like environment, in terms of shell & filename references.
 * a recent version of `jq` (tested with `1.8` and [easily downloadable](https://github.com/jqlang/jq/releases/latest) if yours is older)
 
-#### Generating your own reports
+## Generating your own reports
 
 **Prerequisites**:
 1. [GitHub CLI > Installation](https://github.com/cli/cli#installation): confirm that `gh status` produces a meaningful result.
@@ -35,13 +37,13 @@ This is designed for reproducible results, so that:
 
 TODO the usual method of running both scripts in sequence
 
-#### Generating reports from shared data
+### Generating reports from shared data
 
 **Prerequisites**: none
 
 TODO bootstrapping report generation from an already uploaded `reviews.txt` file
 
-### Verification of results
+## Verification of results
 
 In addition to reproducible reports, postings of API data collection from GitHub can also be independently verified by checking for consistency with the larger intermediate files the `rr-collect` script generates.
 
@@ -56,7 +58,7 @@ This set of `slurp-` files, since it contains the raw comment data, is much larg
 * We might still be interested in seeing this data while these scripts _themselves_ are being validated.
 * In any case, these intermediate files might also be uploaded (e.g. in `raw-review-data`) with each set of reference data.
 
-### Behavioural notes & FAQ
+## Behavioural notes
 
 For a detailed view of all "data types" of review commentary mentioned above, see the [`rr-collect` script](./rr-collect) inline comments.
 * Each of these has a link to the correponding GitHub API endpoint which has a further explanation of that data structure.
@@ -69,6 +71,8 @@ Note: **commit comments** are not included in the above 4 "data types" because:
 In addition to `reviews.txt` feeding our reporting script, it can also be used by other tools:
 * import it into a spreadsheet (as CSV file, with "space" delimiter — i.e. the main reason why the report isn't also a JSON file)
 * import into a relational database — the last (URL) is unique: more concisely, everything after the `#` character
+
+### FAQ
 
 #### Why `gh`?
 
