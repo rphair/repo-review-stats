@@ -1,4 +1,4 @@
-## `repo-review-stats` - tabulate most active project reviewers
+## `repo-review-stats` - tabulate project reviewers by activity level
 
 This accumulates all repository postings — issues, PRs, comments, and reviews — then sorts these combined sets by contributor according to post count _and_ text volume.  All text comments are considered useful to peer review: as opposed to commits which are already tracked for each GitHub repo and have more traditional tools for performance analysis.
 
