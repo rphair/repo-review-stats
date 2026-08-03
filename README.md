@@ -1,6 +1,6 @@
 ## `repo-review-stats` - tabulate most active project reviewers
 
-This accumulates all repository postings — issues, PRs, comments, and reviews — and sorts these sets by contributor by count _and_ text volume.  All text comments are considered useful to peer review: as opposed to commits which are already tracked for each GitHub repo and have more traditional tools for performance analysis.
+This accumulates all repository postings — issues, PRs, comments, and reviews — then sorts these combined sets by contributor according to post count _and_ text volume.  All text comments are considered useful to peer review: as opposed to commits which are already tracked for each GitHub repo and have more traditional tools for performance analysis.
 
 > [!NOTE]
 > Therefore this simply counts all _writing_ on a repo, since all of this is considered useful *in a peer review context*: as opposed to the "software development" context which considers this material irrelevant.
@@ -89,3 +89,9 @@ i.e. _Why is this scripted on top of `gh` rather than constructing API calls mor
 
 **Distribution of API access**: it forces each user to use their own GitHub token rather than [potentially limited bandwidth](https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api?apiVersion=2026-03-10#about-authentication) from a shared token for a certain repository... or for *this* repository.
 * As recommended by GitHub, [authenticated access to GitHub API provides the highest rate limit](https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api?apiVersion=2026-03-10#about-authentication) and is less likely to get stuck (or fail).
+
+#### Why aren't discussions included?
+
+At this time they're not common on this repo's [reference project](https://github.com/cardano-foundation/CIPs) and generally don't correpond to our deliverable of standards (they are rather about processes themselves, or "meta" to our repository).
+
+Someday this may change: and discussions may also constitute peer review for other reference projects.  In either case it would be a good idea to include — or allow optional inclusion of — the comments available through the Discussions API endpoint.
