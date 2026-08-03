@@ -1,35 +1,35 @@
-## `repo-review-stats` - produce lists of most active project reviewers
+## `repo-review-stats` - tabulate most active project reviewers
 
-This accumulates all repository postings — issues, PRs, comments, and reviews.  All text comments are considered useful to peer review: as opposed to commits which are already tracked for each GitHub repo and have more traditional tools for performance analysis.
+This accumulates all repository postings — issues, PRs, comments, and reviews — and sorts these sets by contributor by count _and_ text volume.  All text comments are considered useful to peer review: as opposed to commits which are already tracked for each GitHub repo and have more traditional tools for performance analysis.
 
 > [!NOTE]
-> Therefore this simply counts all _writing_ on a repo, since all of this is considered useful *in a peer review context*.
+> Therefore this simply counts all _writing_ on a repo, since all of this is considered useful *in a peer review context*: as opposed to the "software development" context which considers this material irrelevant.
 
 Division into two scripts is intended to keep these reports deterministic & reproducible, to support well-informed project collaboration, reporting & audit:
 * `rr-collect` - produces a single data file (text, space delimited) with 4 fields:
-  * the UTC format date of a posting (sorted by this field)
-  * the GitHub username
+  * the UTC format date of every posting (sorted by this field)
+  * the GitHub user who posted it
   * the number of raw Markdown characters ("size") in that posting
-  * a deep link in the GitHub UI for that comment (this, or more practically everything after the `#`, can be used as a unique key)
-* `rr-report` - taking collected data in this format in standard input, outputs to standard output two tabulations for each user:
-  * ranked by total sizes of all postings
-  * ranked by count of all postings
+  * a deep link in the GitHub UI for that comment
+* `rr-report` - taking collected data in this format in standard input, outputs to standard output (in Markdown format) two tabulations for each user:
+  * first, ranked by total sizes of all postings
+  * then, ranked by count of all postings
 
 Reference data collections & reports are in [`/reports`](./reports) for the reference projects at the time they were indexed: along with fixed reports for data subsets of interest to a project.
 
 ### Usage
 
 This is designed for reproducible results, so that:
-* multiple runs by different users will always produce the same `report.txt` from `rr-collect` (with any more recently posted comments at the end of a file)
-* data collected for a reference project can re-used independently.
+* Multiple runs by different users will always produce the same `report.txt` from `rr-collect` (differing perhaps by any more recently posted comments at the end).
+* Data collected for a reference project can re-used independently.
 
-Common prerequisites to using any of the scripts by any method:
+**Common prerequisites** to using any of the scripts by any method:
 * a UNIX-like environment, in terms of shell & filename references.
 * a recent version of `jq` (tested with `1.8` and [easily downloadable](github.com/jqlang/jq/releases/latest) if yours is older)
 
 #### Generating your own reports
 
-Prerequisites:
+**Prerequisites**:
 1. [GitHub CLI > Installation](https://github.com/cli/cli#installation): confirm that `gh status` produces a meaningful result.
 2. [`gh auth login`](https://cli.github.com/manual/gh_auth_login): confirm that `gh auth status` produces a meaningful result.
 
@@ -37,7 +37,7 @@ TODO the usual method of running both scripts in sequence
 
 #### Generating reports from shared data
 
-Prerequisites: none
+**Prerequisites**: none
 
 TODO bootstrapping report generation from an already uploaded `reviews.txt` file
 
@@ -47,27 +47,32 @@ In addition to reproducible reports, postings of API data collection from GitHub
 
 This is encouraged, especially for reference projects.  For this purpose, the `rr-collect` script leaves the 4 intermediate files for each collected data type, as documented in the script:
 * `slurp-*-*.json`
-  * each of these 4 files are designated "slurp JSON" because these are not syntactically correct JSON, but concatenated JSON objects which become a proper, parseable `json` array when combined by `jq --slurp`.
-  * originally posted GitHub comments are fully included here, so verifiers can search for an original posting, comment, review, or review comment by keyword without having to extract the URL with `Copy link` in the GitHub UI.
+  * Each of these 4 files are designated "slurp JSON" because they are not syntactically correct JSON, but concatenated JSON objects which become a proper, parseable JSON array when combined by `jq --slurp`.
+  * Originally posted GitHub comments are fully included here: so verifiers can search for an original posting, comment, review, or review comment by keyword without having to extract the URL with `Copy link` in the GitHub UI.
 * `tmp-pr-numbers.txt`
-  * a list of "issue" numbers which are actually PRs (since GitHub uses the same data structure for both).
+  * an unformatted list of "issue" numbers which are actually PRs (since GitHub uses the same data structure for both).
 
-The first group of raw files, since it contains the raw comment data, is much larger than the `rr-collect` output and so it wouldn't generally be posted in the results directory.
-* We might still be interested in seeing this data while the scripts _themselves_ are being validated: so the intermediate files might also be uploaded (e.g. in `raw-review-data`) along with the reference data.
+This set of `slurp-` files, since it contains the raw comment data, is much larger than the `rr-collect` output and so it wouldn't generally be posted in a GitHub project.  However:
+* We might still be interested in seeing this data while these scripts _themselves_ are being validated.
+* In any case, these intermediate files might also be uploaded (e.g. in `raw-review-data`) with each set of reference data.
 
 ### Behavioural notes & FAQ
 
-For a detailed view of all "data types" of public commentary mentioned above, see the [`rr-collect` script](./rr-collect) inline comments.
+For a detailed view of all "data types" of review commentary mentioned above, see the [`rr-collect` script](./rr-collect) inline comments.
 * Each of these has a link to the correponding GitHub API endpoint which has a further explanation of that data structure.
 
 Note: **commit comments** are not included in the above 4 "data types" because:
 * they are extremely rare on this utility's [reference project](https://github.com/cardano-foundation/CIPs);
-* they are relativly invisible in the GitHub UI and therefore don't directly lead to further review;
+* they are relatively invisible in the GitHub UI and therefore don't directly lead to further review;
 * they are less indicative _of peer review_ since they are made _after_ changes are made, rather than proposing further changes.
+
+In addition to `reviews.txt` feeding our reporting script, it can also be used by other tools:
+* import it into a spreadsheet (as CSV file, with "space" delimiter — i.e. the main reason why the report isn't also a JSON file)
+* import into a relational database — the last (URL) is unique: more concisely, everything after the `#` character
 
 #### Why `gh`?
 
-i.e. _Why is this scripted on top of `gh` rather than constructing API calls more canonically using a Javascript-like language + [`octokit`](https://github.com/octokit/octokit.js) to use the GitHub API canonically?
+i.e. _Why is this scripted on top of `gh` rather than constructing API calls more canonically using a Javascript-like language + [`octokit`](https://github.com/octokit/octokit.js) to use the GitHub API canonically?_
 
 **Ease of setup**: GitHub users remain free to choose whichever authentication method suits them best: especially since different repositories have different security assumptions.
 * It also normalises the problem of each user getting `gh` to work on _their own_ repository(ies) of reporting interest: without the complication of using either these scripts or testing with GitHub API calls.
