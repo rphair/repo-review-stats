@@ -33,16 +33,16 @@ This is designed for reproducible results, so that:
 
 **Prerequisites**:
 1. [GitHub CLI > Installation](https://github.com/cli/cli#installation): confirm that `gh status` produces a meaningful result.
-2. [`gh auth login`](https://cli.github.com/manual/gh_auth_login): confirm that `gh auth status` produces a meaningful result.
+2. [`gh auth login`](https://cli.github.com/manual/gh_auth_login): confirm that `gh auth status` shows an accessible GitHub token.
 
 Recommended steps:
 * Get local copies of the scripts `rr-collect` and `rr-report` and ensure they are executable and in your search path.
 * Update the `rr-collect` script `owner` and `repo` variables if using a repo different than [our reference repository](https://github.com/cardano-foundation/CIPs).
 * Create an empty directory and `cd` into it.
 * Run `rr-collect`:
-  * The shortest parts of the script run first, are displayed as they are executed, and will cause the script to terminate upon any error (generally a GitHub API failure).
-  * All the waiting time is for the GitHub API to return from multiple calls: so these times are proportional to the size of the repository * the complexity of that data structure.
-  * Without any Internet delays the collection time for our reference repository is currently (mid-2026) _14 minutes_.
+  * The shortest tasks run first, are displayed as they are executed, and will cause the script to terminate upon any error (generally a GitHub API failure).
+  * All the waiting time is for the GitHub API to return from repeated (paginated) calls: so these times are proportional to the size of the repository * the size of that data structure.
+  * Without any Internet delays the total collection time for our reference repository is currently (mid-2026) _14 minutes_.
 * Filter the output file `reviews.txt` however needed for your targeted results:
   * The file is in chronological order: so you can target a time span by deleting lines from the beginning and/or end.
   * You can also select on the second field (the GitHub username) with `grep` or `grep -v` to report on a list of users ***or*** everyone _other than_ that list of users.
@@ -115,3 +115,13 @@ i.e. _Why is this scripted on top of [GitHub CLI](https://github.com/cli/cli#git
 At this time [GitHub Discussions](https://docs.github.com/en/discussions) are [not common on this repo's reference project](https://github.com/cardano-foundation/CIPs/discussions) and generally don't correpond to our standards deliverable: rather, they are mainly about processes themselves, or "meta" to our repository.
 
 Someday this may change, or discussions might also constitute peer review for other reference projects.  In either case then it would be an improvement to include — or allow optional inclusion of — the comments available through the Discussions API endpoint.
+
+#### Why can't we optimise repeated runs of the script by incremental update?
+
+Because the nature of review means that we will never know when a comment that's relevant today can be applied to an issue or PR that was considered relevant a long time ago.
+
+Therefore, targeting anything but the entire duration of the repository will, in general, orphan comments from their review context _or_ the other way around.
+
+For a simple example: think of a 5-year-old issue that may remain open until some contingency is fixed.  In this case, we never would want to penalise a reviewer or contributor that was able to supply the missing information to the resolution of a long-standing problem.
+
+Practically speaking: if summaries are to be obtained for monthly activity, as already recommended above you would have to `rr-collect` the entire repository (or use an already posted collection) and then filter out each month that you were interested in.
