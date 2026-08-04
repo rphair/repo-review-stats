@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # rphair Tue 28 Jul 2026 20:44:32 EDT = baseline version (proof of concept)
+# Licensed under Apache-2.0: http://www.apache.org/licenses/LICENSE-2.0
 
 # Visualised for cardano-foundaction/CIPs GitHub repo: but should work anywhere.
 owner=cardano-foundation
