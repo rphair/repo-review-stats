@@ -14,7 +14,7 @@ Division into two scripts is intended to keep these reports deterministic & repr
   * the number of raw Markdown characters ("size") in that posting
   * the unique deep link in the GitHub UI for that posting
 * `rr-report` - taking collected data in this format in standard input, outputs to standard output (in Markdown format) two tabulations for each user:
-  * first, ranked by total sizes of all postings
+  * first, ranked by total size of all postings
   * then, ranked by count of all postings
 
 Reference data collections & reports are in [`/reports`](./reports) for the reference projects at the time they were indexed: along with fixed reports for data subsets of interest to a project.
