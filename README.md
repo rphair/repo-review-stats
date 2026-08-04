@@ -36,23 +36,23 @@ This is designed for reproducible results, so that:
 2. [`gh auth login`](https://cli.github.com/manual/gh_auth_login): confirm that `gh auth status` produces a meaningful result.
 
 Recommended steps:
-* Get local copies of the scripts `rr-collect` and `rr-report` and `chmod` them executable.
-* Update the `rr-collect` script `owner` and `repo` variables if using a repo different than [our reference repository](bbb).k
+* Get local copies of the scripts `rr-collect` and `rr-report` and ensure they are executable and in your search path.
+* Update the `rr-collect` script `owner` and `repo` variables if using a repo different than [our reference repository](https://github.com/cardano-foundation/CIPs).
 * Create an empty directory and `cd` into it.
 * Run `rr-collect`:
-  * The shortest parts of the script run first & are displayed as they are executed.
+  * The shortest parts of the script run first, are displayed as they are executed, and will cause the script to terminate upon any error (generally a GitHub API failure).
   * All the waiting time is for the GitHub API to return from multiple calls: so these times are proportional to the size of the repository * the complexity of that data structure.
-  * Without any Internet delays the collection time for our reference repository is _14 minutes_.
+  * Without any Internet delays the collection time for our reference repository is currently (mid-2026) _14 minutes_.
 * Filter the output file `reviews.txt` however needed for your targeted results:
   * The file is in chronological order: so you can target a time span by deleting lines from the beginning and/or end.
-  * You can also select on the second field (or just `grep` or `grep -v` for a unique username) to report on a list of users ***or*** everyone _other than_ that list of users.
+  * You can also select on the second field (the GitHub username) with `grep` or `grep -v` to report on a list of users ***or*** everyone _other than_ that list of users.
 * Run `rr-report` on the target file and collect standard output:
 ```
 rr-report < reviews.txt > reviews.md
 ```
-The Markdown result will have 2 tables of reviewers sorted by review count and then review size:
+The Markdown result will have 2 tables of reviewers sorted by review SIZE and then review COUNT:
 * For long tables, it will probably help to split this file (exactly down the middle; since the set of users is the same) into those two files: one for each table.
-* See our initial test data for some examples of how to prepare data: with input & output data paired together so the results can be readily verified.
+* See the [initial test data](https://github.com/rphair/repo-review-stats/tree/main/reports/CIPs-2026-07-29T14.13.59Z) for some examples of how to prepare data sets: with input & output data paired together so the results can be readily verified.
 
 ### Generating reports from shared data
 
