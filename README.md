@@ -58,7 +58,7 @@ The Markdown result will have 2 tables of reviewers sorted by review SIZE and th
 
 **Prerequisites**: none
 
-**TODO** (by end of day **2026-08-03**) bootstrapping report generation from an already uploaded `reviews.txt` file
+**TODO** (by end of day **2026-08-04**) bootstrapping report generation from an already uploaded `reviews.txt` file
 
 ## Verification of results
 
