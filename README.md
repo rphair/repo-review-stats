@@ -12,7 +12,7 @@ Division into two scripts is intended to keep these reports deterministic & repr
   * the UTC format date of every posting (sorted by this field)
   * the GitHub user who posted it
   * the number of raw Markdown characters ("size") in that posting
-  * a deep link in the GitHub UI for that comment
+  * the unique deep link in the GitHub UI for that posting
 * `rr-report` - taking collected data in this format in standard input, outputs to standard output (in Markdown format) two tabulations for each user:
   * first, ranked by total sizes of all postings
   * then, ranked by count of all postings
