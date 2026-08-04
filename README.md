@@ -33,7 +33,7 @@ This is designed for reproducible results, so that:
 
 **Prerequisites**:
 1. [GitHub CLI > Installation](https://github.com/cli/cli#installation): confirm that `gh status` produces a meaningful result.
-2. [`gh auth login`](https://cli.github.com/manual/gh_auth_login): confirm that `gh auth status` shows an accessible GitHub token.
+2. [`gh auth login`](https://cli.github.com/manual/gh_auth_login), then confirm that `gh auth status` shows an accessible GitHub token.
 
 Recommended steps:
 * Get local copies of the scripts `rr-collect` and `rr-report` and ensure they are executable and in your search path.
