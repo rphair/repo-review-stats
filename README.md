@@ -35,8 +35,6 @@ This is designed for reproducible results, so that:
 1. [GitHub CLI > Installation](https://github.com/cli/cli#installation): confirm that `gh status` produces a meaningful result.
 2. [`gh auth login`](https://cli.github.com/manual/gh_auth_login): confirm that `gh auth status` produces a meaningful result.
 
-**TODO** (by end of day **2026-08-03**) the usual method of running both scripts in sequence
-
 Recommended steps:
 * Get local copies of the scripts `rr-collect` and `rr-report` and `chmod` them executable.
 * Update the `rr-collect` script `owner` and `repo` variables if using a repo different than [our reference repository](bbb).k
