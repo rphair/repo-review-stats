@@ -37,6 +37,25 @@ This is designed for reproducible results, so that:
 
 **TODO** (by end of day **2026-08-03**) the usual method of running both scripts in sequence
 
+Recommended steps:
+* Get local copies of the scripts `rr-collect` and `rr-report` and `chmod` them executable.
+* Update the `rr-collect` script `owner` and `repo` variables if using a repo different than [our reference repository](bbb).k
+* Create an empty directory and `cd` into it.
+* Run `rr-collect`:
+  * The shortest parts of the script run first & are displayed as they are executed.
+  * All the waiting time is for the GitHub API to return from multiple calls: so these times are proportional to the size of the repository * the complexity of that data structure.
+  * Without any Internet delays the collection time for our reference repository is _14 minutes_.
+* Filter the output file `reviews.txt` however needed for your targeted results:
+  * The file is in chronological order: so you can target a time span by deleting lines from the beginning and/or end.
+  * You can also select on the second field (or just `grep` or `grep -v` for a unique username) to report on a list of users ***or*** everyone _other than_ that list of users.
+* Run `rr-report` on the target file and collect standard output:
+```
+rr-report < reviews.txt > reviews.md
+```
+The Markdown result will have 2 tables of reviewers sorted by review count and then review size:
+* For long tables, it will probably help to split this file (exactly down the middle; since the set of users is the same) into those two files: one for each table.
+* See our initial test data for some examples of how to prepare data: with input & output data paired together so the results can be readily verified.
+
 ### Generating reports from shared data
 
 **Prerequisites**: none
