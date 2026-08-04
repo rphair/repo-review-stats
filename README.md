@@ -22,7 +22,7 @@ Reference data collections & reports are in [`/reports`](./reports) for the refe
 ## Usage
 
 This is designed for reproducible results, so that:
-* Multiple runs by different users will always produce the same `report.txt` from `rr-collect` (differing perhaps by any more recently posted comments at the end).
+* Multiple runs by different users will always produce the same `reviews.txt` from `rr-collect` (differing perhaps by any more recently posted comments at the end).
 * Data collected for a reference project can re-used by different users.
 
 **Common prerequisites** to using any of the scripts by any method:
