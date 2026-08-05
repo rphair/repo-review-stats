@@ -118,7 +118,7 @@ Someday this may change, or discussions might also constitute peer review for ot
 
 #### If posting collected data, why not post smaller chunks and then combine them?
 
-Firstly, this would optimise the _least_ intensive part of the process: the text filtering — which is near-instantaneous for everyone — rather than the data collectoin which takes many minutes for API retrieval on our reference repo.
+Firstly, this would optimise the _least_ intensive part of the process — the text filtering, which is near-instantaneous for everyone — rather than the data collectoin which takes many minutes for API retrieval on our reference repo.
 
 This collection itself cannot be optimised because any complete collection for a time interval can only be done by collecting objects created at all possible times.
 
