@@ -118,8 +118,10 @@ Someday this may change, or discussions might also constitute peer review for ot
 
 #### If posting collected data, why not post smaller chunks and then combine them?
 
-Because this would optimise the _least_ intensive part of the process: the text filtering — which is near-instantaneous for everyone — rather than the data extraction which takes many minutes for API retrieval on our reference repo.
+Firstly, this would optimise the _least_ intensive part of the process: the text filtering — which is near-instantaneous for everyone — rather than the data collectoin which takes many minutes for API retrieval on our reference repo.
 
-Because there is no boundary on the time difference between a pull request review and the PR submission time, it will never be knowable in advance — i.e. without downloading the _entire set_ or repository data first — which pull requests contain reviews done in a specific time frame.
+This collection itself cannot be optimised because any complete collection for a time interval can only be done by collecting objects created at all possible times.
+
+For example: because there is no boundary on the time difference between a pull request review and the PR submission time, it will never be knowable in advance — i.e. without downloading the _entire set_ or repository data first — which pull requests contain reviews done in a specific time frame.
 
 Therefore querying the API for reviews timestamped in a certain interval would miss them whenever the PR was submitted outside that interval... with the frequency of orphans increasing significantly as that interval becomes more granular... and so the only way to obtain an accurate data collection for a time interval is to obtain the full historical data collection _and then_ filter it by date.
