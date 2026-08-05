@@ -116,12 +116,10 @@ At this time [GitHub Discussions](https://docs.github.com/en/discussions) are [n
 
 Someday this may change, or discussions might also constitute peer review for other reference projects.  In either case then it would be an improvement to include — or allow optional inclusion of — the comments available through the Discussions API endpoint.
 
-#### Why can't we optimise repeated runs of the script by incremental update?
+#### If posting collected data, why not post smaller chunks and then combine them?
 
-Because the nature of review means that we will never know when a comment that's relevant today can be applied to an issue or PR that was considered relevant a long time ago.
+Because this would optimise the _least_ intensive part of the process: the text filtering — which is near-instantaneous for everyone — rather than the data extraction which takes many minutes for API retrieval on our reference repo.
 
-Therefore, targeting anything but the entire duration of the repository will, in general, orphan comments from their review context _or_ the other way around.
+Because there is no boundary on the time difference between a pull request review and the PR submission time, it will never be knowable in advance — i.e. without downloading the _entire set_ or repository data first — which pull requests contain reviews done in a specific time frame.
 
-For a simple example: think of a 5-year-old issue that may remain open until some contingency is fixed.  In this case, we never would want to penalise a reviewer or contributor that was able to supply the missing information to the resolution of a long-standing problem.
-
-Practically speaking: if summaries are to be obtained for monthly activity, as already recommended above you would have to `rr-collect` the entire repository (or use an already posted collection) and then filter out each month that you were interested in.
+Therefore querying the API for reviews timestamped in a certain interval would miss them whenever the PR was submitted outside that interval... with the frequency of orphans increasing significantly as that interval becomes more granular... and so the only way to obtain an accurate data collection for a time interval is to obtain the full historical data collection _and then_ filter it by date.
