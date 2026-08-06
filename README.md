@@ -122,9 +122,9 @@ Firstly, this would optimise the _least_ intensive part of the process — the t
 
 This collection itself cannot be optimised by selecting a shorter date range, because any complete collection of review text for a time interval still requires collecting objects created (or updated) at all possible times.
 
-For example: because there is no boundary on the time difference between a pull request review and the time the PR was created, it will never be knowable in advance — i.e. without downloading the _entire set_ of repository data first — which pull request contains that review.  Therefore querying the API for reviews timestamped in a certain interval would miss them whenever the PR was submitted outside that interval.
+For example: because there is no boundary on the time difference between a pull request review and the time the PR was created, it will never be knowable in advance — i.e. without downloading the _entire set_ of repository data first — which pull request contains that review.
 
-The frequency of these "orphans" would increase significantly as the time interval becomes shorter granular: the only way to obtain a deterministic set of reviews for any time interval (short or llong) is to obtain the full historical data collection _and then_ filter it by date.
+Therefore querying the API for reviews timestamped in a certain interval would miss them whenever the PR was submitted outside that interval, and the frequency of these "orphans" would increase significantly as the time interval becomes shorter.  The only way to obtain a deterministic set of reviews for any time interval (short or long) is to obtain the full historical data collection _and then_ filter it by date.
 
 Note: this is why the `created_at` date was chosen to list as the review date.  Because it is immutable:
 * the production of review sets for multiple intervals (in general, done at different times) will never have a review items appearing in more than one set;
