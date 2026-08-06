@@ -7,6 +7,19 @@ _Why?_  All text comments are considered useful to _peer review_: as opposed to 
 > [!NOTE]
 > Therefore this simply counts all _writing_ on a repo, since all of this is considered useful *in a peer review context*: as opposed to the "software development" context which considers this material irrelevant.
 
+
+## Quick start
+
+Make sure the `gh` command [GitHub CLI](https://github.com/cli/cli) is installed & runs properly on the [reference repository](https://github.com/cardano-foundation/CIPs) (or another, editing the `rr-collect` script accordingly), then run:
+```
+$ rr-collect
+$ rr-report < reviews.txt > reviews.md
+```
+
+Reference data collections & reports are in [`/reports`](./reports) for the reference projects at the time they were indexed: along with fixed reports for data subsets of interest to a project.
+
+## Usage
+
 Division into two scripts is intended to keep these reports deterministic & reproducible; to support cooperative project reporting, audit, and division of labour:
 * `rr-collect` - produces a single data file (text, space delimited) with 4 fields:
   * the UTC format date of every posting (sorted by this field)
@@ -17,15 +30,11 @@ Division into two scripts is intended to keep these reports deterministic & repr
   * first, ranked by total size of all postings
   * then, ranked by count of all postings
 
-Reference data collections & reports are in [`/reports`](./reports) for the reference projects at the time they were indexed: along with fixed reports for data subsets of interest to a project.
-
-## Usage
-
 This is designed for reproducible results, so that:
 * Multiple runs by different users will always produce the same `reviews.txt` from `rr-collect` (differing perhaps by any more recently posted comments at the end).
 * This data collected for a reference project can then be re-used by different viewers.
 
-**Common prerequisites** to using any of the scripts by any method:
+**Common prerequisites** for using either script:
 * a UNIX-like environment, in terms of shell & filename references
 * a recent version of `jq` (these scripts tested with `1.8`: [easily downloadable](https://github.com/jqlang/jq/releases/latest) if yours is older)
 
