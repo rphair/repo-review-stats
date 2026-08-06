@@ -124,10 +124,11 @@ This collection itself cannot be optimised by selecting a shorter date range, be
 
 For example: because there is no boundary on the time difference between a pull request review and the time the PR was created, it will never be knowable in advance — i.e. without downloading the _entire set_ of repository data first — which pull request contains that review.
 
-Therefore querying the API for reviews timestamped in a certain interval would miss them whenever the PR was submitted outside that interval, and the frequency of these "orphans" would increase significantly as the time interval becomes shorter.
+Therefore querying the API for reviews timestamped in a certain interval would miss them whenever the PR was submitted outside that interval... and the frequency of these "orphans" would increase significantly as the time interval became shorter.
 
-The only way to obtain a deterministic set of review collections for any contiguous time intervals (short or long) would be to obtain the full historical data collection _and then_ filter it by date to selecte that interval.
+The only way to obtain a complete, deterministic set of review collections for any adjacent time intervals (short or long) would be to obtain the full historical data collection _and then_ filter it by date to selecte that interval.
 * For example, you could produce monthly review sets incrementally by doing a full collection each month (running `rr_collect` as prescribed) _and then_ trimming off the entries dated in all previous months.
+* Since the most expensive part of this process is the data collection, there's no advantage to keeping any reports from previous intervals: the review data from that interval can be obtained jut as easily in the present time (and will reflect any updates as well).
 
 Note: this is why the `created_at` date was chosen to list as the review date; because it is immutable:
 * the production of review sets for multiple intervals (in general, done at different times) will never have a review items appearing in more than one set;
