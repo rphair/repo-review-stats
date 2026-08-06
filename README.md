@@ -10,7 +10,7 @@ _Why?_  All text comments are considered useful to _peer review_: as opposed to 
 
 ## Quick start
 
-Make sure the `gh` command [GitHub CLI](https://github.com/cli/cli) is installed & runs properly on the [reference repository](https://github.com/cardano-foundation/CIPs) (or another, editing the `rr-collect` script accordingly), then run:
+Make sure the `gh` command ([GitHub CLI](https://github.com/cli/cli#github-cli)) is installed & runs properly on the [reference repository](https://github.com/cardano-foundation/CIPs) (or another, editing the `rr-collect` script accordingly), then run:
 ```
 $ rr-collect
 $ rr-report < reviews.txt > reviews.md
