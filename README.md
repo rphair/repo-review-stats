@@ -89,6 +89,28 @@ In addition to `reviews.txt` feeding our reporting script, it can also be used b
 * import into a spreadsheet (as CSV file, with "space" delimiter — the main reason why the report isn't also a JSON file);
 * import into a relational database — the last column (URL) is unique enough to be a primary key: more concisely, everything after the `#` character.
 
+### How to properly produce incremental reports for time intervals
+
+#### Can I reduce the query time by selecting a date range for object in the API?
+
+Firstly, this would optimise the _least_ intensive part of the process — the text filtering, which is near-instantaneous for everyone — rather than the data collection which takes many minutes for API retrieval on our reference repo.
+
+This collection itself cannot be optimised by selecting a shorter date range, because any complete collection of review text for a time interval still requires collecting objects created (or updated) at all possible times.
+
+For example: because there is no boundary on the time difference between a pull request review and the time the PR was created, it will never be knowable in advance — i.e. without downloading the _entire set_ of repository data first — which pull request contains that review.
+
+Therefore querying the API for reviews timestamped in a certain interval would miss them whenever the PR was submitted outside that interval... and the frequency of these "orphans" would increase significantly as the time interval became shorter.
+
+#### Always collect all data every time and _then_ select intervals
+
+The only way to obtain a complete, deterministic set of review collections for any adjacent time intervals (short or long) would be to obtain the full historical data collection _and then_ filter it by date to selecte that interval.
+* For example, you could produce monthly review sets incrementally by doing a full collection each month (running `rr_collect` as prescribed) _and then_ trimming off the entries dated in all previous months.
+* Since the most expensive part of this process is the data collection, there's no advantage to keeping any reports from previous intervals: the review data from that interval can be obtained jut as easily in the present time (and will reflect any updates as well).
+
+Note: this is why the `created_at` date was chosen to list as the review date; because it is immutable:
+* the production of review sets for multiple intervals (in general, done at different times) will never have a review items appearing in more than one set;
+* any partial or complete review set prepared at a later time will only have new items (listed in chronological order) appearing at the end.
+
 ### FAQ
 
 #### Why `gh`?
@@ -115,21 +137,3 @@ i.e. _Why is this scripted on top of [GitHub CLI](https://github.com/cli/cli#git
 At this time [GitHub Discussions](https://docs.github.com/en/discussions) are [not common on this repo's reference project](https://github.com/cardano-foundation/CIPs/discussions) and generally don't correpond to our standards deliverable: rather, they are mainly about processes themselves, or "meta" to our repository.
 
 Someday this may change, or discussions might also constitute peer review for other reference projects.  In either case then it would be an improvement to include — or allow optional inclusion of — the comments available through the Discussions API endpoint.
-
-#### If posting collected data, why not post smaller chunks and then combine them?
-
-Firstly, this would optimise the _least_ intensive part of the process — the text filtering, which is near-instantaneous for everyone — rather than the data collection which takes many minutes for API retrieval on our reference repo.
-
-This collection itself cannot be optimised by selecting a shorter date range, because any complete collection of review text for a time interval still requires collecting objects created (or updated) at all possible times.
-
-For example: because there is no boundary on the time difference between a pull request review and the time the PR was created, it will never be knowable in advance — i.e. without downloading the _entire set_ of repository data first — which pull request contains that review.
-
-Therefore querying the API for reviews timestamped in a certain interval would miss them whenever the PR was submitted outside that interval... and the frequency of these "orphans" would increase significantly as the time interval became shorter.
-
-The only way to obtain a complete, deterministic set of review collections for any adjacent time intervals (short or long) would be to obtain the full historical data collection _and then_ filter it by date to selecte that interval.
-* For example, you could produce monthly review sets incrementally by doing a full collection each month (running `rr_collect` as prescribed) _and then_ trimming off the entries dated in all previous months.
-* Since the most expensive part of this process is the data collection, there's no advantage to keeping any reports from previous intervals: the review data from that interval can be obtained jut as easily in the present time (and will reflect any updates as well).
-
-Note: this is why the `created_at` date was chosen to list as the review date; because it is immutable:
-* the production of review sets for multiple intervals (in general, done at different times) will never have a review items appearing in more than one set;
-* any partial or complete review set prepared at a later time will only have new items (listed in chronological order) appearing at the end.
