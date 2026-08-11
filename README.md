@@ -90,8 +90,6 @@ curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/ma
 
 TODO: need to see how formatting looks so far before proceeding: stay tuned (Mon 10 Aug 2026 21:38:39 EDT)
 
-**TODO** (by end of day **2026-08-04**) bootstrapping report generation from an already uploaded `reviews.txt` file
-
 ## Verification of results
 
 In addition to reproducible reports, postings of API data collection from GitHub can also be independently verified by checking for consistency with the larger intermediate files the `rr-collect` script generates.   This can be especially useful when the results are considered unlikely or otherwise disputable.
