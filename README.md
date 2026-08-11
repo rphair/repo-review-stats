@@ -80,7 +80,7 @@ curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/ma
 > [!NOTE]
 > This also gets _the report script_ directly from the repository: to ensure that anyone else verifying the report is using the same version of the script.  If that's not needed, you can just use the local `rr-report` command instead of `bash ...`.
 
-...or you can **filter for a date range** (in this case, the year from months August 2025 through July 2026 inclusive):
+...or you can **filter for a date range** (in this case, the year from August 2025 through July 2026 inclusive):
 ```
 curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt \
   | awk '$1 > "2025-08" && $1 < "2026-08"' \
