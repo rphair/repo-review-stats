@@ -72,7 +72,8 @@ For example, from the `reviews.txt` already posted here (with effective date sho
 
 you can **pipe it directly to the report generator**:
 ```
-curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report)
+curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt \
+  | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report)
 ```
 (keep in mind the current `bash` implementation of `rr-report` processes about 1000 lines per second, with 26875 lines in this file)
 
@@ -81,7 +82,9 @@ curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/ma
 
 ... or you can **filter for a date range** (in this case, all of year 2026 so far):
 ```
-curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt | grep ^2026 | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report)
+curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt \
+  | grep ^2026 \
+  | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report)
 ```
 > [!TIP]
 > YMMV with text filtering via Linux CLI: you may be better off downloading the `reviews.txt` file, editing it by hand to select a date range, and sharing it again with your team for verification.  To persist with dynamic text filtering, see some [examples of logfile filtering with `awk`](https://stackoverflow.com/questions/7706095/filter-log-file-entries-based-on-date-range).
