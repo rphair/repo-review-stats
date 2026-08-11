@@ -7,7 +7,6 @@ _Why?_  All text comments are considered useful to _peer review_: as opposed to 
 > [!NOTE]
 > Therefore this simply counts all _writing_ on a repo, since all of this is considered useful *in a peer review context*: as opposed to the "software development" context which considers this material irrelevant.
 
-
 ## Quick start
 
 Make sure the `gh` command ([GitHub CLI](https://github.com/cli/cli#github-cli)) is installed & runs properly on the [reference repository](https://github.com/cardano-foundation/CIPs) (or another, editing the `rr-collect` script accordingly), then run:
@@ -66,6 +65,30 @@ The Markdown result will have 2 tables of reviewers sorted by review SIZE and th
 ### Generating reports from shared data
 
 **Prerequisites**: none
+
+Custom reports can also be generated — to save the substantial time in data collection, or to guarantee reproducibility — from readily available data sets.
+
+For example, from the `reviews.txt` already posted here (with effective date shown on its last line): https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt
+
+you **pipe it directly to the report generator**:
+```
+curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report)
+```
+(keep in mind the current `bash` implementation of `rr-report` processes about 1000 lines per second)
+
+> [!NOTE]
+> This also gets _script_ directly from the repository to ensure that anyone else running this command is using the same version of the script: if that's not needed you can just use the local `rr-report` command instead of `bash ...`.
+
+... or you can **filter for a date range** (in this case, all of year 2025):
+```
+curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt | head -1000 | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report)
+```
+> [!TIP]
+> YMMV with text filtering via Linux CLI: you may be better off with the original use case of downloading the `reviews.txt file`, editing & verifying it, and sharing it again with your team.  To persist with more dynamic text filtering, see some [examples of logfile filtering with `awk`](https://stackoverflow.com/questions/7706095/filter-log-file-entries-based-on-date-range).
+
+... or **filter for (and against) certain users** (e.g. current collaborators on the reference repository):
+
+TODO: need to see how formatting looks so far before proceeding: stay tuned (Mon 10 Aug 2026 21:38:39 EDT)
 
 **TODO** (by end of day **2026-08-04**) bootstrapping report generation from an already uploaded `reviews.txt` file
 
