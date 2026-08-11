@@ -1,4 +1,4 @@
-# `repo-review-stats` - tabulate project reviewers by activity level
+# `repo-review-stats` - tabulate project reviewers by activity
 
 This accumulates all repository postings — issues/PRs, comments, reviews, and review comments — then sorts these combined sets by contributor according to text volume _and_ post count.
 
@@ -21,7 +21,7 @@ Reference data collections & reports are in [`/reports`](./reports) for the refe
 ## Usage
 
 Division into two scripts is intended to keep these reports deterministic & reproducible; to support cooperative project reporting, audit, and division of labour:
-* `rr-collect` - produces a single data file (text, space delimited) with 4 fields:
+* `rr-collect` - produces a single data file `reviews.txt` with 4 fields (space delimited):
   * the UTC format date of every posting (sorted by this field)
   * the GitHub user who posted it
   * the number of raw Markdown characters ("size") in that posting
