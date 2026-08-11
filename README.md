@@ -74,10 +74,10 @@ you can **pipe it directly to the report generator**:
 ```
 curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report)
 ```
-(keep in mind the current `bash` implementation of `rr-report` processes about 1000 lines per second)
+(keep in mind the current `bash` implementation of `rr-report` processes about 1000 lines per second, with 26875 lines in this file)
 
 > [!NOTE]
-> This also gets _script_ directly from the repository to ensure that anyone else running this command is using the same version of the script: if that's not needed you can just use the local `rr-report` command instead of `bash ...`.
+> This also gets _the report script_ directly from the repository: to ensure that anyone else verifying the report is using the same version of the script.  If that's not needed, you can just use the local `rr-report` command instead of `bash ...`.
 
 ... or you can **filter for a date range** (in this case, all of year 2025):
 ```
