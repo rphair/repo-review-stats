@@ -53,7 +53,7 @@ done
 bcScale=3   # used for decimal places of percentages; i.e. 2 less than *total* precision
 
 # 2a) Total SIZE of all reviews for each user
-echo '| ***user*** | ***review SIZE*** | ***percentage*** |'
+echo '| ***user*** | ***review SIZE*** | ***% total' "$totalSize"'*** |'
 echo '| --- | --- | --- |'
 for user in ${!size[@]}
 do
@@ -65,7 +65,7 @@ done | sort -rnk4   # descending numerically by 4th field = integer size
 echo
 
 # 2b) Total COUNT of reviews for each user
-echo '| ***user*** | ***review COUNT*** | ***percentage*** |'
+echo '| ***user*** | ***review COUNT*** | ***% total' "$totalCount"'*** |'
 echo '| --- | --- | --- |'
 for user in ${!count[@]}
 do
