@@ -66,11 +66,11 @@ The Markdown result will have 2 tables of reviewers sorted by review SIZE and th
 
 **Prerequisites**: none
 
-Custom reports can also be generated — to save the substantial time in data collection, or to guarantee reproducibility — from readily available data sets.
+Custom reports can also be generated from readily available data sets: to save the substantial time in data collection, to guarantee reproducibility, etc.
 
 For example, from the `reviews.txt` already posted here (with effective date shown on its last line): https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt
 
-you **pipe it directly to the report generator**:
+you can **pipe it directly to the report generator**:
 ```
 curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report)
 ```
