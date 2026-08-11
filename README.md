@@ -84,7 +84,7 @@ curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/ma
 curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt | grep ^2026 | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report)
 ```
 > [!TIP]
-> YMMV with text filtering via Linux CLI: you may be better off with the original use case of downloading the `reviews.txt file`, editing & verifying it, and sharing it again with your team.  To persist with more dynamic text filtering, see some [examples of logfile filtering with `awk`](https://stackoverflow.com/questions/7706095/filter-log-file-entries-based-on-date-range).
+> YMMV with text filtering via Linux CLI: you may be better off downloading the `reviews.txt` file, editing it by hand to select a date range, and sharing it again with your team for verification.  To persist with dynamic text filtering, see some [examples of logfile filtering with `awk`](https://stackoverflow.com/questions/7706095/filter-log-file-entries-based-on-date-range).
 
 ... or **filter for (and against) certain users** (e.g. current collaborators on the reference repository):
 
