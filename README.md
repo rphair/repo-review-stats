@@ -79,9 +79,9 @@ curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/ma
 > [!NOTE]
 > This also gets _the report script_ directly from the repository: to ensure that anyone else verifying the report is using the same version of the script.  If that's not needed, you can just use the local `rr-report` command instead of `bash ...`.
 
-... or you can **filter for a date range** (in this case, all of year 2025):
+... or you can **filter for a date range** (in this case, all of year 2026 so far):
 ```
-curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt | head -1000 | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report)
+curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt | grep ^2026 | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report)
 ```
 > [!TIP]
 > YMMV with text filtering via Linux CLI: you may be better off with the original use case of downloading the `reviews.txt file`, editing & verifying it, and sharing it again with your team.  To persist with more dynamic text filtering, see some [examples of logfile filtering with `awk`](https://stackoverflow.com/questions/7706095/filter-log-file-entries-based-on-date-range).
