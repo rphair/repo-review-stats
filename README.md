@@ -80,7 +80,7 @@ curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/ma
 > [!NOTE]
 > This also gets _the report script_ directly from the repository: to ensure that anyone else verifying the report is using the same version of the script.  If that's not needed, you can just use the local `rr-report` command instead of `bash ...`.
 
-... or you can **filter for a date range** (in this case, all of year 2026 so far):
+...or you can **filter for a date range** (in this case, all of year 2026 so far):
 ```
 curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt \
   | grep ^2026 \
@@ -89,9 +89,18 @@ curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/ma
 > [!TIP]
 > YMMV with text filtering via Linux CLI: you may be better off downloading the `reviews.txt` file, editing it by hand to select a date range, and sharing it again with your team for verification.  To persist with dynamic text filtering, see some [examples of logfile filtering with `awk`](https://stackoverflow.com/questions/7706095/filter-log-file-entries-based-on-date-range).
 
-... or **filter for (and against) certain users** (e.g. current collaborators on the reference repository):
-
-TODO: need to see how formatting looks so far before proceeding: stay tuned (Mon 10 Aug 2026 21:38:39 EDT)
+... or **filter for (and against) certain users** (in this case, current collaborators on the reference repository):
+```
+curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt \
+  | awk '$2 ~ /^(rphair|Ryun1|perturbing)$/' \
+  | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report)
+```
+...with its complementary report (to identify top contributors _outside of_ a project team):
+```
+curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt \
+  | awk '$2 !~ /^(rphair|Ryun1|perturbing)$/' \
+  | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report)
+```
 
 ## Verification of results
 
