@@ -133,7 +133,7 @@ In addition to `reviews.txt` feeding our reporting script, it can also be used b
 
 ### How to properly produce incremental reports for time intervals
 
-#### Can I reduce the query time by selecting a date range for object in the API?
+#### Can I reduce the overall query time by selecting a date range for objects in the API?
 
 Firstly, this would optimise the _least_ intensive part of the process — the text filtering, which is near-instantaneous for everyone — rather than the data collection which takes many minutes for API retrieval on our reference repo.
 
@@ -164,12 +164,12 @@ i.e. _Why is this scripted on top of [GitHub CLI](https://github.com/cli/cli#git
 
 **Consistency of setup** (at least as far as this repo is concerned): This code can focus on clearly written scripts and leave every other question about getting `gh` running to existing user documentation.
 
-**Security**: Using `gh` as a platform equalises the vastly different OS-dependent procedures for securely storing & recalling your GitHub token... a huge difference between Windows and Linux "certificate store" for instance.
+**Security**: Using `gh` as a platform both completes and equalises the vastly different OS-dependent procedures for securely storing & recalling your GitHub token... a huge difference between Windows and Linux "certificate store" for instance.
 * By contrast, using the raw GitHub API generally requires the token be [made available in cleartext](https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api?apiVersion=2026-03-10) at some point in the process.
 
-**Simplicity of design**: Using `gh api` leads to a self-documenting script that anyone can understand: rather than a structure of JS code that only its author would ever understand.
+**Simplicity of design**: Using `gh api` leads to a self-documenting script that anyone can understand: rather than a structure of JS code that only its author might ever understand.
 * This is mainly because `gh api` handles [pagination of GitHub queries](https://docs.github.com/en/rest/using-the-rest-api/using-pagination-in-the-rest-api?apiVersion=2026-03-10) natively: allowing a single shell command to produce most data sets in their entirety.
-* Thanks to the `gh api` front end (already chosen for GitHub token management & cross-platform consistency) all data gathering can be done with a half-dozen CLI commands: and therefore a script to execute these is far simpler than JS code.
+* Thanks to the `gh api` front end (already chosen for GitHub token management & cross-platform consistency) all data gathering can be done with a half-dozen CLI commands: and therefore a script to execute these is far simpler & shorter than JS code.
 
 **Distribution of API access**: Each user must use their own (or their project's) GitHub token, which avoids [potentially limited bandwidth](https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api?apiVersion=2026-03-10#about-authentication) they would have from a publicly shared token that one might have on a typical "scraper" web site... or would have by running these scripts through GitHub workflow automation, which can impose very strict bandwidth limitations.
 * As recommended by GitHub, [authenticated access to GitHub API provides the highest rate limit](https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api?apiVersion=2026-03-10#about-authentication) and is less likely to get stuck (or fail).
