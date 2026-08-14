@@ -164,7 +164,7 @@ i.e. _Why is this scripted on top of [GitHub CLI](https://github.com/cli/cli#git
 
 **Consistency of setup** (at least as far as this repo is concerned): This code can focus on clearly written scripts and leave every other question about getting `gh` running to existing user documentation.
 
-**Security**: Using `gh` as a platform both completes and equalises the vastly different OS-dependent procedures for securely storing & recalling your GitHub token... a huge difference between Windows and Linux "certificate store" for instance.
+**Security**: Using `gh` as a platform both completes and equalises the vastly different OS-dependent procedures for securely storing & recalling your GitHub token... with a huge difference between Windows and Linux "certificate store" for instance.
 * By contrast, using the raw GitHub API generally requires the token be [made available in cleartext](https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api?apiVersion=2026-03-10) at some point in the process.
 
 **Simplicity of design**: Using `gh api` leads to a self-documenting script that anyone can understand: rather than a structure of JS code that only its author might ever understand.
