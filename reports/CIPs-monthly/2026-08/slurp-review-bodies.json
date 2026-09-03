@@ -19319,6 +19319,13 @@
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/444#pullrequestreview-4750454052"
 }
 {
+  "created_at": "2026-08-04T23:37:35Z",
+  "login": "rphair",
+  "body": "Latest progress was reviewed as usual at the CIP meeting today; @nemo83 had already offered to provide a more detailed update when returning from PTO this week.  Significant points from the meeting:\r\n* Latest improvements include resolution of the \"upgrade\" question by permitting new versions via a governance action with on-chain deposit & voting as we have for Cardano's chain governance itself.\r\n* Editors are (and will be) interested in @colll78 confirming that the vast improvements recently documented in the last comment above _are also reflected in the current CIP text_.\r\n\r\nOn the community side: the CIP Discord has a round of posted ideas from @rober-m for \"substandards\" of the candidate CIP-0113 beginning [here in the #cip-0133 channel](https://discord.com/channels/971785110770831360/1448538251316035666/1534321905593487612) (cc @Kammerlo @Temasar1 @fabianbormann).\r\n* @rober-m @colll78 this is a lot of writing to live on Discord (not easily repurposed from there & the posting byte limit can be oppressive) so if you want to create a [GitHub Discussion](https://github.com/cardano-foundation/CIPs/discussions) for these topics please feel free.",
+  "length": 1162,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/444#pullrequestreview-4859802144"
+}
+{
   "created_at": "2023-01-20T13:18:41Z",
   "login": "rphair",
   "body": "This proposal looks fine as far as I will currently be able to understand it; I know some discussion will want to happen (above my level) but I'm approving this now based on:\r\n- formatting improvements & compatibility with new CIP-0001 guidelines\r\n- adding history of CIP's acceptance & implementation\r\n- method `cardano.{walletName}.isEnabled()` answering long standing question about versioning / feature support including issues like https://github.com/cardano-foundation/CIPs/pull/443",
@@ -32395,6 +32402,13 @@
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/735#pullrequestreview-4300481685"
 }
 {
+  "created_at": "2026-08-18T02:08:27Z",
+  "login": "rphair",
+  "body": "@colll78 we've been going through all the confirmed but stalled CIPs & in this case it got lost in the queue because editors had assumed there would be a response to @lehins' https://github.com/cardano-foundation/CIPs/pull/735#pullrequestreview-4296200726:\r\n* After all the similar work to refine this, I would think that we could get this back on track if you respond to those review points as before.\r\n* A review from Ledger <ins>emphatically</ins> saying \"it's not ready\" would generally make it impossible for editors to approve a Ledger-bound proposal for merge.\r\n* We don't want to give anyone \"Veto\" power, but if there's a reason why Ledger not approving would somehow make for an acceptable CIP then please elaborate & we would take that into account.\r\n* In the same vein, maybe @WhatisRT would contribute a second opinion on [that review](https://github.com/cardano-foundation/CIPs/pull/735#pullrequestreview-4296200726) in case anything stated there is uncertain.\r\n\r\n**Most importantly** there was @lehins's suggestion in the leading comment of that review to _bring this to the Ledger Working Group meeting_:\r\n* Did that ever happen (since suggested on 15 May)?\r\n* If not, @colll78 could you arrange this: especially if that's what it takes to get the difficulties reconciled?\r\n\r\n@Ryun1 @perturbing conversely I think with Ledger's approval we could then merge this straightaway.\r\n* Until that happens — and without any relevant progress posted from working group meetings — this would remain `Waiting for Author` and proceeding toward closure in a few weeks: though I hope this will be updated & perhaps reconciled before then.",
+  "length": 1640,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/735#pullrequestreview-4956417512"
+}
+{
   "created_at": "2024-01-08T16:38:59Z",
   "login": "rphair",
   "body": "So assuming https://github.com/cardano-foundation/CIPs/pull/736#issuecomment-1881436503 is satisfactory, everything looks good to me.",
@@ -37769,6 +37783,34 @@
   "body": "",
   "length": 0,
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/843#pullrequestreview-3066851944"
+}
+{
+  "created_at": "2026-08-09T13:31:38Z",
+  "login": "colll78",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/843#pullrequestreview-4891484848"
+}
+{
+  "created_at": "2026-08-09T13:36:59Z",
+  "login": "colll78",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/843#pullrequestreview-4891499938"
+}
+{
+  "created_at": "2026-08-09T22:10:27Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/843#pullrequestreview-4892696617"
+}
+{
+  "created_at": "2026-08-09T22:24:01Z",
+  "login": "rphair",
+  "body": "Given recent discussion of how payment links might accommodate \"handles\":\r\n* https://github.com/cardano-foundation/CIPs/pull/1229#discussion_r3742436344\r\n\r\n— and because we already have one implementing wallet (Begin) and another [willing to implement](https://github.com/cardano-foundation/CIPs/issues/836#issuecomment-3961657610) (VESPR, as per @AlexDochioiu) —  we should have this CIP confirmed by merging as our best effort to standardise payment links.  I've made some arguments for this in the course of our only recommended technical change so far (https://github.com/cardano-foundation/CIPs/pull/843#discussion_r3745455357).\r\n\r\nWe should also keep in mind the version currently `/v1` in the URL can always be bumped if mutual compatibility isn't perfect the first time, or needs to specify additional things like \"handle resolvers\" (cc @kingslavcho @papag00se).\r\n\r\nGiven @colll78's latest https://github.com/cardano-foundation/CIPs/pull/843#discussion_r3743952708 I would recommend this course:\r\n1. a rewrite as he suggests... or however that discussion concludes (and hopefully he or @francisluz would please submit this as a correction & editors will commit it);\r\n2. I'm submitting a format edit below to match our current CIP standards & pass validation (vs. [these failures](https://github.com/cardano-foundation/CIPs/actions/runs/31337336961/job/93305240387?pr=843));\r\n3. once all edits are in, I would approve this & tag `Last Check` to get this merged ASAP — especially since it would allow further deltas to be submitted freely: with appreciation for how far @Crypto2099 has carried this already (cc @Ryun1 @perturbing);\r\n4. if @Crypto2099 cannot rename the containing directory to `CIP-0157` as suggested long ago, the editors can fix the repository structure accordingly after this is merged.",
+  "length": 1811,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/843#pullrequestreview-4892719358"
 }
 {
   "created_at": "2024-06-22T12:33:40Z",
@@ -45303,6 +45345,27 @@
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/964#pullrequestreview-4041349048"
 }
 {
+  "created_at": "2026-08-18T01:21:51Z",
+  "login": "rphair",
+  "body": "@jpraynaud after a long period waiting for reviewers to follow up on this, I realised I have likely misinterpreted your last https://github.com/cardano-foundation/CIPs/pull/964#issuecomment-4225372645 — instead of a required compatibility with Mithril, I think you were suggesting that Mithril is doing something different to accomplish the same thing... as I think @colll78 also confirmed in https://github.com/cardano-foundation/CIPs/pull/964#issuecomment-4206949254.\r\n\r\nAgain, I'm sorry there hasn't been enough engagement about this proposal for editors to know what to do with it: but now that so much time has gone by — and especially with Phil's https://github.com/cardano-foundation/CIPs/pull/964/changes/5be3937be0715a992b9336d232c6d68c20bb66fc to translate this into a potential, practical solution (even if the resulting CIP might not be universally agreed or adopted) — I would rather merge this as-is than let it sit here through a second calendar year... especially since the original author has moved on.\r\n\r\n@Ryun1 @perturbing - I do think the last review comments confirm this is suitable for `Last Check` as I originally arranged above (https://github.com/cardano-foundation/CIPs/pull/964#event-24096178656).\r\n* If anyone has any strong feelings about how this should be changed (cc @ch1bo) then please comment ASAP to \"blow the whistle\" (before our CIP meeting in 15 hours: https://hackmd.io/@cip-editors/141).\r\n* I feel safe with this strategy — given our low-bandwidth engagement — because anyone with sufficient interest but missing this time frame could then follow up with a PR via a branch that they own: and including any changes to the CIP-0178 text that might reflect current goals & practice.\r\n* Alternatively, if _not_ agreed to merge this at tomorrow's CIP meeting, I would rather close this PR immediately — as a failed attempt to get consensus about how this should be implemented — than have it sit here with one of our \"stale\" tags which will just end up closing it anyway.\r\n\r\n**p.s.** @Ryun1 @perturbing also note our usual problem of the CIP number not being applied to the containing directory (our [only remaining validation problem](https://github.com/cardano-foundation/CIPs/actions/runs/32087977308/job/95564344058?pr=964))... we would have to fix this in a quick administrative PR after merge.",
+  "length": 2335,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/964#pullrequestreview-4956219522"
+}
+{
+  "created_at": "2026-08-18T16:52:37Z",
+  "login": "perturbing",
+  "body": "So currently there is no review from Ledger or consensus on this.\n\nAlso note that adding this implies more load on the node for verifying blocks. \n\nFor Plutus built-ins, we generally require benchmarks of new functionality, as complex built-ins might not fit the budget. Can you add a benchmark that shows this will not break block adoption?",
+  "length": 341,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/964#pullrequestreview-4963598795"
+}
+{
+  "created_at": "2026-09-01T17:01:18Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/964#pullrequestreview-5080848437"
+}
+{
   "created_at": "2025-01-21T05:13:22Z",
   "login": "rphair",
   "body": "thanks @Ryun1 - brilliant to have this CIP serving a better documentation purpose.  Marking `Last Check` since these seem so straightforward & and especially since no hashes are actually being removed or created.\r\n\r\nThe meeting could be a good time to confirm that:\r\n-  `Correction` means no practical consequences for devs or implementors (it doesn't require or document a functional change);\r\n- `Update` requires or documents a functional change & therefore has practical consequences.\r\n\r\n... and if this definition is accepted then I'll apply it to the GitHub labels.",
@@ -48654,6 +48717,20 @@
   "body": "> Definitely agree on trying to get feedback from other agencies that exist currently.\r\n\r\nyes, this also came up in the last meeting with regard to the _Path to Active_: since as currently written only one API and one API user is required... and should be more for any client-server standard (otherwise the same vendor can simply produce both client & server without assuring generality or interoperability):",
   "length": 408,
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1052#pullrequestreview-3056638648"
+}
+{
+  "created_at": "2026-08-16T23:48:31Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1052#pullrequestreview-4947597208"
+}
+{
+  "created_at": "2026-08-17T00:08:39Z",
+  "login": "rphair",
+  "body": "@TotallyNotChase it's been over a year since our request to get comments from potential implementors trailed off from your side.\n* Generally this is something that CIP editors will try to help with: but we get the lowest traction at all with CIP review requests from wallets & DeFi projects which really left us dependent upon you (and/or Mlabs?) (cc @Ryun1 @perturbing).\n\nIn general we would close this as \"abandoned\" for that reason: though I'll tag it for confirmation first, in case you have in fact made progress — either in development or participation in this idea from other entities besides your own project — and so please post here if you have had any supporting interest at all.\n* Note we have sometimes confirmed CIPs even without that supporting interest: but never when there is no advocacy or no interest expressed in such a long time period.\n* Therefore we would need strong engagement from you if you wish to continue with this: if that's observed, we'll put this on the next CIP meeting agenda for potential confirmation rather than closing this.\n\nI also considered marking this potentially \"deprecated\" because of these two recent developments:\n* apparent evolution of \"Tiered Pricing\" into a general pricing mechanism which would potentially be capable of implementing Babel Fees (cc @polinavino @willjgould): https://github.com/cardano-foundation/CIPs/pull/1218#discussion_r3516342967\n* a recent CIP meeting presentation that API output will be generally unacceptable for determining transaction amounts of recipients — mainly because of the huge security risks of a malicious entity commandeering the API (cc @colll78): https://github.com/cardano-foundation/CIPs/pull/1229#pullrequestreview-4860154554\n\nIn any case you can feel free to close this if your work no longer continues, and we will close it from the tag above — at the next interval when we check these things — if there is no further comment.",
+  "length": 1927,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1052#pullrequestreview-4947662992"
 }
 {
   "created_at": "2025-07-09T07:39:06Z",
@@ -53073,6 +53150,20 @@
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1087#pullrequestreview-3337159258"
 }
 {
+  "created_at": "2026-08-18T00:06:16Z",
+  "login": "rphair",
+  "body": "@euonymos as I recall we were waiting late last year for either your response to @SeungheonOh's https://github.com/cardano-foundation/CIPs/pull/1087#pullrequestreview-3292410548 or the engagement from a more general Plutus community the editors first invited in my initial https://github.com/cardano-foundation/CIPs/pull/1087#pullrequestreview-3229232470.\r\n\r\nWe are trying to find how to progress PRs that haven't been advocated by their authors (as requested in CIP-0001) and this one looks promising to continue because most of the review responses, more clearly in hindsight, were questions rather than criticisms.  So if it can be confirmed:\r\n1. @SeungheonOh - that you would find acceptable to merge this as-is\r\n2. @euonymos @jmagan - that the CIP text would still accurately describe work in this field\r\n\r\nthen I can approve it for merge myself, and put on the last-check list to merge at the next CIP meeting.\r\n* Since sometimes either authors and reviewers can drift in & out of interest, I believe it will be OK to get 1 of the 2 confirmations above (cc @Ryun1 @perturbing) to consider this valid for merge.\r\n* Conversely, if nobody can confirm that the current state is mergeable, the \"waiting\" stage would eventually cause this PR to be closed.\r\n\r\nFYI the changes below would help ensure this CIP can pass the format validation introduced in the meantime: hopefully the editors have the ability to commit to this branch so we can finish this.",
+  "length": 1453,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1087#pullrequestreview-4955655808"
+}
+{
+  "created_at": "2026-08-18T00:09:17Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1087#pullrequestreview-4955703503"
+}
+{
   "created_at": "2025-10-01T12:22:18Z",
   "login": "rphair",
   "body": "I think this is ready to merge as an update now that the request to extend the scope has been settled with https://github.com/cardano-foundation/CIPs/pull/1088#issuecomment-3356022366 - no worries @fallen-icarus and personally I think your \"tangent\" was very appropriate considering the CIP-0153 implementation right around the corner as per https://github.com/cardano-foundation/CIPs/pull/1088#issuecomment-3356022366.\r\n\r\nSince merging this would provide clarity about what's being implemented at that hard fork, I don't want this to get stuck in the queue so I'm personally approving & marking `Last Check` so we should have 2 weeks to note any objections to the change or any other other adjustments requested.  Though this seemed doomed to another 2 weeks of `Triage` I think @effectfully's https://github.com/cardano-foundation/CIPs/pull/1088#issuecomment-3354295285 lack of objection to the CIP update (as submitted here) is confirmation enough for now.",
@@ -53379,6 +53470,27 @@
   "body": "I'd like to see the following changes being made, before merging this PR:\n- The motivations stated in the above comments should be summarized in the CIP\n- Describe the semantics of the builtins more precisely as I mentioned previously\n- Rename restrictValueTo/filterOutPolices to keepPolicies/dropPolicies\n- The comment above `assetCount` says \"Is this more efficient than pattern-matching on the result of `restrictValueTo`???\" Remove this, and instead explicitly state that the addition of this builtin will be conditional upon the Plutlus team verifying that the efficiency gain justifies it.",
   "length": 595,
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1090#pullrequestreview-4724440920"
+}
+{
+  "created_at": "2026-08-17T21:56:22Z",
+  "login": "zliu41",
+  "body": "I think we can merge it as is. If we decide that we need `emptyValue` later, we can amend it.",
+  "length": 93,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1090#pullrequestreview-4954920812"
+}
+{
+  "created_at": "2026-08-17T22:58:46Z",
+  "login": "rphair",
+  "body": "thanks @zliu41; I think that answers the one remaining review point & we'll check with other editors / reviewers to see if they're OK merging this from `Last Check` tomorrow (cc @fallen-icarus): https://hackmd.io/@cip-editors/141",
+  "length": 229,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1090#pullrequestreview-4955260396"
+}
+{
+  "created_at": "2026-08-18T14:11:44Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1090#pullrequestreview-4961999894"
 }
 {
   "created_at": "2025-10-07T06:18:18Z",
@@ -53799,6 +53911,13 @@
   "body": "",
   "length": 0,
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1103#pullrequestreview-3768762970"
+}
+{
+  "created_at": "2026-08-18T00:32:02Z",
+  "login": "rphair",
+  "body": "@HinsonSIDAN I can't understand why the advocacy for this CPS was dropped at the end of last year as the Cardano community moved into such serious consideration of the multi-asset treasury proposition.\r\n\r\n@Ryun1 @perturbing - I think we might as well merge this document since — with all current deliberations in governance & technical committees about how (not _whether_) to adopt some version of a CMAT (please @thenic95 correct me if I've misunderstood) then it hardly matters what it says here in the CPS: especially since its statements have by necessity have only been general regarding a practical solution.\r\n\r\nTherefore I would be in favour of putting this on track to merge as-is (with some necessary format validation changes tagged below) if we can simply get each of these confirmations:\r\n* @thenic95 - that this document makes no incorrect assumptions or misleading statements about what how the CMAT should work;\r\n* @lehins - that we have one more opportunity for you to check the current text since it appears (to me) all the points _after_ your latest unresolved point https://github.com/cardano-foundation/CIPs/pull/1103#discussion_r2763287642 have been fixed.\r\n\r\n@HinsonSIDAN & any other interested parties: it would be a shame to close this as abandoned (which would happen in due course from the `Waiting for Author` state without any further response) but we _always_ need advocates to step up to encounter peer review — otherwise the CIP editors can't simply approve & merge documents on their own.",
+  "length": 1520,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1103#pullrequestreview-4955889513"
 }
 {
   "created_at": "2025-10-27T18:42:42Z",
@@ -54445,6 +54564,13 @@
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1109#pullrequestreview-3579602888"
 }
 {
+  "created_at": "2026-08-17T00:32:51Z",
+  "login": "rphair",
+  "body": "@HinsonSIDAN we have had less than 7 weeks of discussion on this, which ended in December of last year: more than 8 months ago.  The only facts that were settled in the discussion appear to be (cc @lehins @qnikst @yHSJ @colll78 @Quantumplation):\r\n1. any suggestion of standardising CBOR can only be accomplished from a tooling perspective and can never hope to have any consistency with the Ledger;\r\n2. there should be a common place to discuss this issue (with resolutions summarised in this CPS candidate) so DevX pain points are not scattered in blogs, social network posts, and PR/issue comments across many repositories.\r\n\r\nHowever neither of these goals are being accomplished because (respectively):\r\n1. there has been no further detail posted about how developers & agencies who would agree on a common serialisation would: depend upon it, use it, certify it, etc.;\r\n2. feedback such as what @HinsonSIDAN you mentioned in your OP (the outcome of Cardano Builder Fest 2025) is not being accumulated & posted from: working groups, further events / seminars, or similar discussions on other channels.\r\n\r\nSo we do have a point of common interest but don't have a potential CPS because it is not evolving to accumulate the results of discussion and peer review:\r\n* @HinsonSIDAN and or any other advocates: somebody would have to continue or take over this role of advocacy and start supplying the above information... and then I believe we could obtain a CPS addressing this \"pain point\" without it simply being one person's conception of how a solution would be characterised.\r\n\r\nWithout that, or without further comment, we would have to assume this is either just abandoned or perhaps beyond the author's (or anyone's) capability to draft a universally agreeable & productive problem statement: in either case, closing this PR. - cc @perturbing @Ryun1 ",
+  "length": 1858,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1109#pullrequestreview-4947718083"
+}
+{
   "created_at": "2025-10-30T17:17:31Z",
   "login": "rphair",
   "body": "thanks @polinavino - new reviewers please refer back to the original submission of this idea & why it's distinct from CIP-0112:\n* https://github.com/cardano-foundation/CIPs/pull/1105\n\n@colll78 the CIP editors at this week's meeting were keen to you get your audit / security view of this CIP once prepared.  Also @GeorgeFlerovsky you'd expressed an interest and of course @lehins we would look forward to your view on how all this fits together.",
@@ -54725,6 +54851,13 @@
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1114#pullrequestreview-3677672224"
 }
 {
+  "created_at": "2026-08-17T00:51:36Z",
+  "login": "rphair",
+  "body": "@david-a-clark @wpennemans @thiago-tsnnst I have assumed this came primarily from what produced the DPP presentation at Cardano Summit 2025 but also noticed (especially in hindsight, with 7 months since the last posting here) that engagement stopped not long afterward.\r\n\r\nIt may be that EU deliberations over the DPP issue have made this seem less urgent — or that priorities have changed on CF advocacy for this idea — but since this is purely a technical proposition, we should be able to make progress on this CPS regardless: since trade regulations & government requirements would always be subject to change while the technical framework should always be useable regardless (cc @Crypto2099).\r\n\r\nSo the CIP editors would have to assume that this effort has been abandoned unless periodic feedback is posted here.  Generally we can't leave these PR threads stalled indefinitely: since the pending material becomes impossible to maintain and therefore _less_ likely to produce a workable standard or problem statement.\r\n\r\nTherefore I have tagged this to require progress from you for us to keep this PR open: with a time frame that would tend to close this PR if the next Summit season comes & goes this year without comment, update, or other participation.\r\n\r\n**On the other hand**: if your last updates (as of https://github.com/cardano-foundation/CIPs/pull/1114/changes/5d23c3e4182083f4cfb28f25a6dad28cdd464f9a) have produced a CPS which your team & working group feel happy with, please confirm this here and we can put it forward for the next CIP meeting & likely qualify this as a CPS candidate & merge it not long afterward.",
+  "length": 1634,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1114#pullrequestreview-4947760938"
+}
+{
   "created_at": "2025-11-26T14:42:28Z",
   "login": "rphair",
   "body": "🚀",
@@ -54961,6 +55094,13 @@
   "body": "",
   "length": 0,
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1117#pullrequestreview-3645304596"
+}
+{
+  "created_at": "2026-08-17T01:10:08Z",
+  "login": "rphair",
+  "body": "@Thomas-nada as it says in CIP-0001: submissions to this repository often require an _advocate_ (usually the author) who posts regularly to keep bringing editorial & peer review together with community statements & ideas and providing responses to feedback... with requests for re-review every time consensus needs to be, or appears to be, achieved.\r\n\r\nSo far this thread has been like a posting board for ideas on the subject, without any emphatic confirmation that the proposed method would be acceptable to anyone.  But perhaps now that this has been merged (cc @maureenblack @daniellestanko-gov - with maybe @thenic95 also interested):\r\n* [CPS-0033 | DRep Voting Power Concentration](https://github.com/cardano-foundation/CIPs/tree/master/CPS-0033)\r\n\r\n... we might clarify these discussions, and you might offer this proposal back to the relevant communities — to see if they can provide some evidence that they would find this proposal acceptable — and to implement some changes if necessary to gain their support.\r\n* Of course you would be welcome to use this thread to hold such discussions: as the CIP Editors generally hope for in the review process.\r\n* If we again see some progress beyond the above inconclusive review threads, we can get this proposal back in the CIP Meeting review agenda for hopeful confirmation as a CIP candidate (with a number) & then consideration as a real technical proposition of interest to the governance community.\r\n\r\nConversely: without that progress, this proposal would proceed toward closure: not because it isn't a good idea, but because we can't use it as a CIP without the vital component of conclusive peer review.  cc @Ryun1 @perturbing + reviewers @Cerkoryn @fallen-icarus",
+  "length": 1723,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1117#pullrequestreview-4947809898"
 }
 {
   "created_at": "2025-12-08T21:13:46Z",
@@ -55761,6 +55901,41 @@
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1135#pullrequestreview-3880799041"
 }
 {
+  "created_at": "2026-08-18T04:04:56Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1135#pullrequestreview-4957111406"
+}
+{
+  "created_at": "2026-08-18T04:08:58Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1135#pullrequestreview-4957131707"
+}
+{
+  "created_at": "2026-08-18T04:11:55Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1135#pullrequestreview-4957143387"
+}
+{
+  "created_at": "2026-08-18T04:26:43Z",
+  "login": "rphair",
+  "body": "@carlostome @lehins (as the two principal review & response parties) although this was stalled I can see that it has passed through two rounds of review while:\r\n* attracting some support for the pathological cases that it would solve (better explained by @colll78 above & confirming what was noted in the prior CIP meeting);\r\n* the unique confirmation from @lehins that \"it should have originally been designed to work this way\" (paraphrased from memory);\r\n* answering questions from community experts (e.g. @ch1bo) who might not originally have understood the purpose for this but appear to have all questions answered here.\r\n\r\nThe one remaining item that pulled this back from `Last Check` before was an uncertainty about which hard fork this would be included in (as documented in the OP https://github.com/cardano-foundation/CIPs/pull/1135#issue-3828855495).\r\n* I don't see why this should be a problem since we've had many CIPs over the years which defined future changes to the Ledger but only indicated that \"a hard fork\" would be required without divining any hard fork names or scope in advance.\r\n* Therefore I've installed a simple `Path to Active` that resolves that `TODO` item — giving us a _Path to Active_ consistent with the Nested Transactions work scope & timeline — as explained already in [this comment & change](https://github.com/cardano-foundation/CIPs/pull/1135#discussion_r2728769940).\r\n\r\nI think this puts us safely back at `Last Check` but please @lehins feel free to go over this again: especially if there are any Ledger considerations that should be added to the _Path to Active_ to make it plausible.\r\n* I would hope to merge this with no further reservations but please post if so & we'll take it off the agenda for now: https://hackmd.io/@cip-editors/141\r\n\r\nNote I'll be submitting some commits below to correct the [validation problems](https://github.com/cardano-foundation/CIPs/actions/runs/32097845431/job/95592532936?pr=1135) but these will just be formatting & not substantial changes.",
+  "length": 2024,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1135#pullrequestreview-4957203085"
+}
+{
+  "created_at": "2026-08-18T14:30:40Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1135#pullrequestreview-4962209705"
+}
+{
   "created_at": "2026-01-20T15:15:43Z",
   "login": "Ryun1",
   "body": "",
@@ -56102,6 +56277,20 @@
   "body": "",
   "length": 0,
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1140#pullrequestreview-4747042927"
+}
+{
+  "created_at": "2026-09-03T21:59:48Z",
+  "login": "ch1bo",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1140#pullrequestreview-5107235912"
+}
+{
+  "created_at": "2026-09-03T22:08:50Z",
+  "login": "Cerkoryn",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1140#pullrequestreview-5107301016"
 }
 {
   "created_at": "2026-02-24T17:16:27Z",
@@ -56965,6 +57154,27 @@
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1150#pullrequestreview-4047445121"
 }
 {
+  "created_at": "2026-08-18T01:39:53Z",
+  "login": "rphair",
+  "body": "@kozross this was in limbo — and significantly delayed beyond your 3 other concurrently submitted CPSs — because we were waiting for a response to your https://github.com/cardano-foundation/CIPs/pull/1150#issuecomment-4330771445 asking @zliu41 for (final?) confirmation.\n\nWithout any remaining dispute — and assuming that any other considered changes perhaps won't ruin the validity of this problem statement — I would feel safe merging this... preferring to push it out into the community as a mature problem statement, even if any imagined solutions might still be immature, rather than demand more review.\n\nTherefore I'm promoting this to `Last Check` in particular hope that co-editor @perturbing can identify at the soon upcoming meeting (https://hackmd.io/@cip-editors/141) if anything seems problematic about this statement.\n* Our reviewer list is short and bandwidth has been been low, but please anyone else involved feel free to raise any reservations before then (or submit a PR to modify this after merge): @Unisay @effectfully @wadler ",
+  "length": 1048,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1150#pullrequestreview-4956295244"
+}
+{
+  "created_at": "2026-08-18T14:31:37Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1150#pullrequestreview-4962223143"
+}
+{
+  "created_at": "2026-08-18T16:53:04Z",
+  "login": "perturbing",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1150#pullrequestreview-4963602025"
+}
+{
   "created_at": "2026-02-13T17:44:49Z",
   "login": "rphair",
   "body": "Confirmed in dialogue after this point:\r\n* https://github.com/cardano-foundation/developer-portal/pull/1697#pullrequestreview-3793431595\r\n\r\nbased on DMQ implementation in Dingo node (cc @jpraynaud).",
@@ -57525,6 +57735,20 @@
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1164#pullrequestreview-4462305519"
 }
 {
+  "created_at": "2026-08-18T03:53:55Z",
+  "login": "rphair",
+  "body": "@ptrdsh I had approved this as well on track to merge before, but have noted (after some time originally waiting for an update from you) that the still-`TODO` item noted in https://github.com/cardano-foundation/CIPs/pull/1164#discussion_r3382344234 contains a _missing part of the Ledger rules_.\r\n* This in turn creates a contingency because we can't ask @lehins @WhatisRT to review this — essential for a proposal with Ledger impact — while the Ledger-facing specification is still incomplete.\r\n\r\nThis idea seems unpopular but editorially we wouldn't disqualify it for that alone.  The editors' main reservation would be against merging a half-completed or incompletely-reviewed proposal & so we have to tag this `Waiting for Author` until we have some progress toward:\r\n* _either_ replacing the `TODO` sentence with the missing part of the spec _or_ removing that sentence if in fact this is already done;\r\n* some response to a Ledger review about the possibility of making this change: without necessarily addressing any other criticism that the change might not be desirable.\r\n\r\n@thenic95 @daniellestanko-gov since approval from Ledger is orthogonal to review of Governance impact, I still hope you & any other governance advocates besides @kenerik (noting his objection https://github.com/cardano-foundation/CIPs/pull/1164#issuecomment-4662140981) will now have some time to also post a review based on impact to the governance process.",
+  "length": 1441,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1164#pullrequestreview-4957065263"
+}
+{
+  "created_at": "2026-09-02T16:49:58Z",
+  "login": "rphair",
+  "body": "@ptrdsh thanks for cleaning this up.  To me it seems logical in every way, and the points upon which other governance advocates would disagree are beyond my experience: although I would interject (as I already said above) that this can still be merged as a proper CIP for current & future consideration even if the overall sentiment is against implementing this.\r\n\r\n@lehins (cc @carlostome @williamdemeo) can you please check the feasibility of the [Ledger Rule Changes](https://github.com/ptrdsh/CIPs/blob/patch-2/CIP-0182/README.md#ledger-rule-changes)?  I would approve this myself if this would create no Ledger problem or conflict (pending the format fixes below).\r\n\r\nAlso @ptrdsh I still don't know who to ask or tag about the [proposed protocol parameter changes](https://github.com/ptrdsh/CIPs/blob/patch-2/CIP-0182/README.md#new-governance-protocol-parameter-optional) so perhaps you would tag anyone who can give an assessment about that.",
+  "length": 948,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1164#pullrequestreview-5092506706"
+}
+{
   "created_at": "2026-03-23T15:21:58Z",
   "login": "rphair",
   "body": "looks good: useful & finally symmetrical.  Should be mergeable as a CIP update at next meeting (https://hackmd.io/@cip-editors/131) & will ping other editors for review in the meantime.",
@@ -57833,6 +58057,48 @@
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1175#pullrequestreview-4308217882"
 }
 {
+  "created_at": "2026-08-18T02:47:58Z",
+  "login": "rphair",
+  "body": "@perturbing it definitely seems to me that the review on this has stabilised — with no new comment in 3 months — and with much of the discussion & suggested improvements coming from the co-authors & all of it incorporated for some time now.\n\nI think you would agree it's better for CPSs to be pushed out into the community to seed the work on conceiving and developing particular solutions.  As Consensus mechanisms continue discussion in the limelight, I would much prefer to refer to \"CPS-0030\" on the post-quantum front as a proper CPS rather than a \"candidate\".\n\nSo I would much rather merge this than incubating it indefinitely: and if you still consider it a work in progress then please @perturbing @hjeljeli32 @ptrdsh and other subject matter experts feel free to submit any update PRs as necessary: after `Last Check` and hopefully editorial agreement to merge tomorrow (or whenever any proposed changes are executed): https://hackmd.io/@cip-editors/141",
+  "length": 962,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1175#pullrequestreview-4956683585"
+}
+{
+  "created_at": "2026-08-18T02:49:56Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1175#pullrequestreview-4956698277"
+}
+{
+  "created_at": "2026-08-18T04:43:07Z",
+  "login": "hjeljeli32",
+  "body": "LGTM 🔒 🚀  ",
+  "length": 10,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1175#pullrequestreview-4957301254"
+}
+{
+  "created_at": "2026-08-18T11:55:09Z",
+  "login": "perturbing",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1175#pullrequestreview-4960688318"
+}
+{
+  "created_at": "2026-08-18T11:55:29Z",
+  "login": "perturbing",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1175#pullrequestreview-4960690782"
+}
+{
+  "created_at": "2026-08-19T11:31:31Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1175#pullrequestreview-4971613506"
+}
+{
   "created_at": "2026-04-08T17:25:30Z",
   "login": "rphair",
   "body": "@SamDelaney this is on the agenda for `Triage` at the next CIP meeting: https://hackmd.io/@cip-editors/132 — besides @Crypto2099's review I would also hope to get from the meeting a list of representative developers to tag from projects that might have live or in-progress implementations: to ensure we get a comprehensive stakeholder review & properly announce that a new version is on the way.\r\n\r\nAlso, if you could identify key parts of CIP-0088 and CIP-0102 that you've added or substantially changed, it might facilitate our meeting preliminary review if you added links to those parts in your OP above.",
@@ -58022,6 +58288,41 @@
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1178#pullrequestreview-4108021564"
 }
 {
+  "created_at": "2026-08-18T03:20:14Z",
+  "login": "rphair",
+  "body": "@fallen-icarus as I was re-reading through the entire review & response history here (since it's almost 3 months since review bandwidth has fallen to `0`) I noted:\n* your \"major rewrite\" https://github.com/cardano-foundation/CIPs/pull/1178/changes/dd2ec66069650567f443306857211c2bb89391e9 seems to have addressed all feedback that came before it;\n* all comments since — mainly from developers of intents & tiered pricing — have been inquisitive rather than critical & you appear to have addressed them all & answered all questions;\n* those latter reviewers i.e. @polinavino @berewt haven't identified anything that would supersede or challenge this proposal: as stated, \"mostly orthogonal\" in practice though maybe parallel in motivation.\n\nSo this has met the requirements for peer review in my opinion and I would be happy to see this merged (cc @perturbing @Ryun1):\n* We have a huge `Last Check` meeting coming up (mostly from my going through all the stalled proposals): https://hackmd.io/@cip-editors/141\n* — so although we may not finish merging everything (and we will start with proposals a lot older than this one) please all reviewers post any last-minute reservations if there is any reason this should not be merged tomorrow: cc @Quantumplation @AndrewWestberg @Cerkoryn @colll78",
+  "length": 1290,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1178#pullrequestreview-4956920692"
+}
+{
+  "created_at": "2026-08-18T14:33:32Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1178#pullrequestreview-4962246053"
+}
+{
+  "created_at": "2026-08-18T14:34:56Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1178#pullrequestreview-4962260086"
+}
+{
+  "created_at": "2026-08-18T14:57:50Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1178#pullrequestreview-4962507666"
+}
+{
+  "created_at": "2026-08-18T16:56:57Z",
+  "login": "perturbing",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1178#pullrequestreview-4963635396"
+}
+{
   "created_at": "2026-04-13T14:01:36Z",
   "login": "rphair",
   "body": "thanks @paluh — if I remember correctly from that meeting, we mentioned that the `Draft` status was available for documents that CIP authors wanted to release for comment but that were not ready for review.\n\nFrom what I can see in this document, it's an early version of the protocol rather than a release-ready API which I think (pending other editors' agreement) would be suitable for a CIP because of the diverse entities that would be using it.\n\nSince the latter stages of the document (practically everything beyond this early spec) haven't been written yet — and maybe can't be written until the spec is further refined — I'll set this `Draft` mode (which can be updated by yourself or any editor) which will also allow it to incubate further here _without_ getting introduced at a CIP meeting (next one = tomorrow).\n\nIf you need to use the CIP forum to find reviewers at _this_ stage of the writing / development, please post here and we can tag it `Triage` to present it at the meeting early.  Otherwise this will happen in due course after taking out of of `Draft` mode.",
@@ -58076,6 +58377,62 @@
   "body": "It was resolved at the CIP meeting today that we'll continue commentary on this PR thread alone (vs. https://github.com/cardano-foundation/CIPs/pull/1182 which we agreed to mark `Draft` to avoid duplication of effort) before & after @thenic95's proposed merger of the two proposals as outlined in https://github.com/cardano-foundation/CIPs/pull/1182#issuecomment-4757610182.\r\n\r\nOnce that consolidation is complete, we can definitively close the other one (cc @Quantumplation) and then we'll solicit general review on the resulting proposal here.",
   "length": 545,
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1180#pullrequestreview-4750563030"
+}
+{
+  "created_at": "2026-08-07T23:37:25Z",
+  "login": "rphair",
+  "body": "@thenic95 this all looks very well written, technically complete & workable to me.  I have no practical experience with this data structure so I would follow the reviews from related stakeholders in certifying it.\n\nPlease tag whoever might have made the case for this in governance workshops & working groups — I'll try to get started with some who have contributed reviews & done work in this scope (e.g. https://github.com/cardano-foundation/CIPs/issues/978): @Ryun1 @Crypto2099 @gitmachtl @gufmar @ptrdsh \n\n... and especially after @Quantumplation's own review and/or acceptance of the merged changes we can mark this for `Last Check` review as soon as there seems nothing further to add or change (next meeting on biweekly schedule = https://hackmd.io/@cip-editors/141).",
+  "length": 774,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1180#pullrequestreview-4887214574"
+}
+{
+  "created_at": "2026-08-07T23:54:04Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1180#pullrequestreview-4887362956"
+}
+{
+  "created_at": "2026-08-07T23:54:14Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1180#pullrequestreview-4887363342"
+}
+{
+  "created_at": "2026-08-07T23:54:41Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1180#pullrequestreview-4887364881"
+}
+{
+  "created_at": "2026-08-07T23:54:49Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1180#pullrequestreview-4887365405"
+}
+{
+  "created_at": "2026-08-08T00:27:01Z",
+  "login": "Quantumplation",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1180#pullrequestreview-4887512222"
+}
+{
+  "created_at": "2026-08-08T00:56:20Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1180#pullrequestreview-4887632120"
+}
+{
+  "created_at": "2026-08-08T02:29:19Z",
+  "login": "Quantumplation",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1180#pullrequestreview-4887885124"
 }
 {
   "created_at": "2026-04-23T10:23:51Z",
@@ -58405,6 +58762,27 @@
   "body": "@realdecimalist thanks for attending the CIP meeting today to provide a general status of this effort; as expected there's been broad support from wallet devs (3 projects so far have indicated progress) and without any sign of trouble we're free to mark this `Last Check` for the next CIP meeting: https://hackmd.io/@cip-editors/140",
   "length": 332,
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1189#pullrequestreview-4750586685"
+}
+{
+  "created_at": "2026-08-04T08:47:01Z",
+  "login": "perturbing",
+  "body": "I am not a wallet expert, but given that @marcuspuchalla closed the open gaps and that those are in the CIP, I approve.\n\nAwesome to see this implemented by more wallets than Eternl, and congratulations on a well-designed, impactful design for the broader ecosystem (native mobile support is a big gap, imo).",
+  "length": 307,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1189#pullrequestreview-4852327086"
+}
+{
+  "created_at": "2026-08-04T13:09:10Z",
+  "login": "Ryun1",
+  "body": "this is a very cool standard\nim looking forward to trying it out\n\nthank you for the contribution @realdecimalist ",
+  "length": 113,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1189#pullrequestreview-4854802789"
+}
+{
+  "created_at": "2026-08-04T15:39:16Z",
+  "login": "rphair",
+  "body": "@realdecimalist generally we would wait until the CIP meeting to merge a proposal as profound and beneficial as this, so I'm not hitting the Merge button yet despite the unanimous approval.  Thanks for setting such a great example for the standards community and all the development efforts that come into contact with it.",
+  "length": 322,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1189#pullrequestreview-4856307225"
 }
 {
   "created_at": "2026-05-14T09:04:03Z",
@@ -58988,6 +59366,69 @@
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1200#pullrequestreview-4428811834"
 }
 {
+  "created_at": "2026-08-13T12:51:53Z",
+  "login": "mariusgeorgescu",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1200#pullrequestreview-4927242043"
+}
+{
+  "created_at": "2026-08-13T17:52:53Z",
+  "login": "rphair",
+  "body": "@mariusgeorgescu (and/or @colll78) please ping the editors in a comment here when the work in progress appears to stabilise — particularly, anything that would be documented in the CIP — so we can put this through final review.",
+  "length": 227,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1200#pullrequestreview-4930045387"
+}
+{
+  "created_at": "2026-08-14T12:49:59Z",
+  "login": "colll78",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1200#pullrequestreview-4937248898"
+}
+{
+  "created_at": "2026-08-18T15:45:25Z",
+  "login": "keyan-m",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1200#pullrequestreview-4962990727"
+}
+{
+  "created_at": "2026-08-28T20:21:34Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1200#pullrequestreview-5054798178"
+}
+{
+  "created_at": "2026-08-28T21:02:19Z",
+  "login": "rphair",
+  "body": "that's great @mariusgeorgescu and I will readily approve this myself & mark `Last Check` for the next CIP meeting after your consideration of the change below: as you say, with _Path to Active_ issues being independent of the normative content.\r\n\r\n@colll78 we have tagged this around the ecosystem already in https://github.com/cardano-foundation/CIPs/pull/1200#pullrequestreview-4351412306 and you are the only one who's shown a productive interest.  It looks like implementations have already been facilitated by the work you began in https://github.com/cardano-foundation/CIPs/pull/1200#discussion_r3356839251 with compatibility verified in https://github.com/cardano-foundation/CIPs/pull/1200#discussion_r3805661237.\r\n* Whatever assurance you can give us that this CIP is ready to merge will be helpful in `Last Check` maybe as soon as Tuesday: https://hackmd.io/@cip-editors/142\r\n\r\n@mariusgeorgescu the CIP editors don't have the need or the ability to audit this — so this would not be a deeply technical review — though I can appreciate (and will note in the meeting review) that:\r\n* audit is expected beginning with the next item on the Implementation Plan\r\n* data structure has been provided to facilitate audit (i.e. exposing intermediate levels of data).\r\n\r\n@Crypto2099 I've also seen you RSVP for this next meeting so I thought you might also be interested in a look at this beforehand & please tag anyone else you'd like to notify that the review is actively proceeding.",
+  "length": 1483,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1200#pullrequestreview-5055026438"
+}
+{
+  "created_at": "2026-08-28T21:12:55Z",
+  "login": "rphair",
+  "body": "**p.s.** in my last review I meant to suggest using a link when referring to a commonly quoted part of your spec (used 8 times in your document, but only these 2 are _forward_ references & therefore more of a courtesy to the reader):",
+  "length": 233,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1200#pullrequestreview-5055117536"
+}
+{
+  "created_at": "2026-08-31T14:59:15Z",
+  "login": "rphair",
+  "body": "great work @mariusgeorgescu ⭐ and I look forward to hearing what the other editors think (cc @Ryun1 @perturbing) —  and if @colll78 has any last words — around `Last Check` tomorrow: https://hackmd.io/@cip-editors/142",
+  "length": 217,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1200#pullrequestreview-5067943263"
+}
+{
+  "created_at": "2026-09-01T15:55:04Z",
+  "login": "Ryun1",
+  "body": "LGTM\nthanks for the contribution @mariusgeorgescu ",
+  "length": 50,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1200#pullrequestreview-5080208696"
+}
+{
   "created_at": "2026-05-23T22:09:58Z",
   "login": "rphair",
   "body": "I can't speak for the implications of this proposal: given the accountability requirements I would think necessary in any decentralised system like Cardano is hoping to achieve.  CIP editors could still pass this through as a technical proposition in anticipation of technical measures to address it... and as with those CIPs that would result, leave any consideration of merit to the governance process itself.\r\n\r\nIn any case — and for the main reason that it appears only to suggest _technical_ means of confidentiality — marking `Triage` for next meeting (https://hackmd.io/@cip-editors/135)... rather than tagging the usual Governance advocates now, we can wait until after the meeting when the formatting review points are likely to have been cleaned up:",
@@ -59084,6 +59525,20 @@
   "body": "",
   "length": 0,
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1203#pullrequestreview-4487325647"
+}
+{
+  "created_at": "2026-08-16T23:31:30Z",
+  "login": "rphair",
+  "body": "@Ryun1 @perturbing I believe it was fair enough to mark this `Waiting for Author` a few weeks ago, requesting that we get confirmation from any devs/users of any tooling that may exist for the Plutus Contract Blueprint (as per CIP-0057 itself).\r\n* However, even without that confirmation, this update actually reflects the latest working version that the CIP repository is able to obtain.\r\n* Therefore I'm putting this back at `Last Check` where it was before we made that CIP meeting decision (in early July) to wait for the all-around confirmation that has not come.\r\n\r\nUpon re-review I feel confident doing this after noting @matiwinnetou's initial https://github.com/cardano-foundation/CIPs/pull/1203#issue-4546766817 that these changes are \"purely additive\" and therefore on general principle incapable of producing the \"breaking changes\" the editors were worried about.\r\n\r\nSo @matiwinnetou @scarmuega @KtorZ @Unisay I'm going to see if we can merge this at the next CIP meeting (https://hackmd.io/@cip-editors/141).\r\n* If my explanation above is not accepted — i.e. vetoed by another editor — or if no other editor accepts my rationale and approves this, I will close this as abandoned: since at that point we would have no way of progressing this without answers to the editors' and peers' review questions above.",
+  "length": 1320,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1203#pullrequestreview-4947559455"
+}
+{
+  "created_at": "2026-08-18T14:35:59Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1203#pullrequestreview-4962271493"
 }
 {
   "created_at": "2026-06-01T02:28:50Z",
@@ -59723,6 +60178,34 @@
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1211#pullrequestreview-4752860121"
 }
 {
+  "created_at": "2026-08-04T08:37:48Z",
+  "login": "perturbing",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1211#pullrequestreview-4852248920"
+}
+{
+  "created_at": "2026-08-04T08:38:17Z",
+  "login": "perturbing",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1211#pullrequestreview-4852252597"
+}
+{
+  "created_at": "2026-08-04T17:07:35Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1211#pullrequestreview-4857066546"
+}
+{
+  "created_at": "2026-08-06T14:14:27Z",
+  "login": "Ryun1",
+  "body": "great work @maureenblack and @daniellestanko-gov 👌",
+  "length": 50,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1211#pullrequestreview-4875556988"
+}
+{
   "created_at": "2026-06-23T14:11:56Z",
   "login": "jpraynaud",
   "body": "",
@@ -60129,6 +60612,27 @@
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1227#pullrequestreview-4785036151"
 }
 {
+  "created_at": "2026-08-25T10:55:54Z",
+  "login": "coot",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1227#pullrequestreview-5018058137"
+}
+{
+  "created_at": "2026-08-25T11:00:40Z",
+  "login": "coot",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1227#pullrequestreview-5018094119"
+}
+{
+  "created_at": "2026-08-25T11:16:55Z",
+  "login": "coot",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1227#pullrequestreview-5018234037"
+}
+{
   "created_at": "2026-07-12T18:54:39Z",
   "login": "rphair",
   "body": "@BrockCruess can please you provide some documentation — for readers' sake, maybe adding it into the OP above (currently empty) — about what this bot does and/or what you intend to do with it: including how & when it posts metadata to the chain?",
@@ -60239,6 +60743,104 @@
   "body": "",
   "length": 0,
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1229#pullrequestreview-4793042736"
+}
+{
+  "created_at": "2026-08-04T12:32:20Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1229#pullrequestreview-4854379615"
+}
+{
+  "created_at": "2026-08-04T12:37:10Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1229#pullrequestreview-4854437157"
+}
+{
+  "created_at": "2026-08-04T13:04:30Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1229#pullrequestreview-4854749479"
+}
+{
+  "created_at": "2026-08-04T15:28:01Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1229#pullrequestreview-4856205375"
+}
+{
+  "created_at": "2026-08-04T16:28:09Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1229#pullrequestreview-4856741428"
+}
+{
+  "created_at": "2026-08-04T16:29:50Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1229#pullrequestreview-4856754157"
+}
+{
+  "created_at": "2026-08-04T21:23:46Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1229#pullrequestreview-4859094507"
+}
+{
+  "created_at": "2026-08-05T00:58:39Z",
+  "login": "kingslavcho",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1229#pullrequestreview-4860132724"
+}
+{
+  "created_at": "2026-08-05T01:01:25Z",
+  "login": "kingslavcho",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1229#pullrequestreview-4860144650"
+}
+{
+  "created_at": "2026-08-05T01:03:19Z",
+  "login": "rphair",
+  "body": "Thanks @kingslavcho for bringing this to community review at the CIP meeting today.  Our goal there was first to update the community about the presence of two potential means of \"opening\" the Cardano handle namespace: including this one.\n* The editors also appreciated in advance of the meeting your quick provisioning of a proof-of-concept utility as linked above.\n\nOur main reason for not confirming this was serious concern that the presence of an API as an option in the resolver protocol would allow \"poisoning\" or injection unless we had a system in which _everybody_ could be trusted... it seems a single malicious resolving entity (or someone hacking their web site / DNS address) would be able to commandeer the whole resolution process.\n\nAs @Ryun1 summarised in https://github.com/cardano-foundation/CIPs/pull/1229#discussion_r3714369932, wherever payments are concerned there has to be an _**entirely** on-chain_ resolution of destination addresses.  In @colll78's elaboration of the problem we noted that APIs are acceptable when information-gathering... but _**not** for financial asset transfer_ (even the simple case of hijacking a DNS address could lead to massive redirection of funds).\n\nPlease take your time to adjust your solution accordingly and we will try to review the particulars online; we'll attempt to confirm this again when we have an entirely on-chain approach that looks promising.",
+  "length": 1414,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1229#pullrequestreview-4860154554"
+}
+{
+  "created_at": "2026-08-05T01:29:13Z",
+  "login": "kingslavcho",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1229#pullrequestreview-4860256644"
+}
+{
+  "created_at": "2026-08-09T03:04:39Z",
+  "login": "rphair",
+  "body": "@kingslavcho after your last comment and reading the latest specification, I no longer see any off-chain API components to the handle resolution or API assistance in choice of a provider.\r\n* This should not be taken as confirmation because I personally don't have enough wallet implementation experience to know when a piece of missing information might someday suggest or require an API similar to the one that was just removed.\r\n* In any case review by wallet implementors is going to be important in settling these questions, and also to ensure that the specification has no ambiguity from their point of view (I can also see that there is flexibility in their own display of resolver choices, but this flexibility appears documented clearly).\r\n\r\n@perturbing @Ryun1 - therefore, although it was just on the agenda last week, unless someone can point out a problem that requires substantial re-working of this CIP, we have to give the author another chance to make their case for CIP candidacy and for others to claim that critical faults aren't fixed yet — so I've put it on the agenda again: https://hackmd.io/@cip-editors/141\r\n\r\n@kingslavcho (this may be a new issue) I can also see that URI payment links have been scoped into this CIP — with a proposed URI syntax (something that requires a CIP itself) — without my noticing or it coming up in the meeting yet.\r\n* \"Payment links\" (and most Cardano URIs) are a substantial effort in Cardano wallet standardisation that is still inconclusive and so it would be improper for this CIP to address it, let alone imply that payment URIs are a solved problem: we can follow this in threaded discussion below.\r\n\r\n@colll78 @papag00se in light of your prior concerns about any & all of the content here please post any remaining objections after the last reorganisation.  It will likely save us time if any substantial problems can be pointed out this week & if necessary we can postpone the meeting review until tentative agreement (or at least \"no contest\") is reached here on GitHub.",
+  "length": 2032,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1229#pullrequestreview-4890371033"
+}
+{
+  "created_at": "2026-08-12T04:05:16Z",
+  "login": "rphair",
+  "body": "thanks again @kingslavcho for the update; it seems we have enough updated material that a review at the next CIP meeting would be progressive: so I'm leaving it on Review for https://hackmd.io/@cip-editors/141.\r\n\r\n@Ryun1 @perturbing & reviewers: I think the headings from @papag00se in his final https://github.com/cardano-foundation/CIPs/pull/1229#issuecomment-5247054857 would serve well as a checklist for editor / reviewer consensus in _either_ declaring this a CIP candidate _or_ declaring that any unresolved issues should still block this CIP's candidacy.\r\n* Personally I agree with enough of the points in that comment that they would serve us better than an attempt by a CIP editor to draft an entirely new list.\r\n* Even if they have been \"fixed\" by recent commits they should be confirmed in open review.\r\n* Hopefully we will have enough time to bring up these points one by one, to get a view from the community about whether they consider each particular challenge to be as serious as presumed and/or perhaps worth some effort in persisting even with known imperfections.\r\n\r\nI still think it's a good plan to wait until this can be confirmed a CIP candidate — i.e. with any emphatic reservations addressed — before explicitly tagging any wallet reps to review this proposal.",
+  "length": 1286,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1229#pullrequestreview-4912933832"
+}
+{
+  "created_at": "2026-08-18T20:17:04Z",
+  "login": "rphair",
+  "body": "All those with a declared interest in standardisation of Handle resolution were present at the CIP meeting today, where this was confirmed as a candidate with the observations & resolutions below.\r\n* @kingslavcho please rename the containing directory to `CIP-0196` and update the \"rendered latest proposal\" link in your OP. 🎉\r\n\r\nAny concern the CIP editors may have had about undue influence appears settled by the paragraph added here, in the (recently renamed) \"Governance\" section: https://github.com/cardano-foundation/CIPs/pull/1229/changes/72c80d856fe1dcc7c7c98f38953c9f2cebdc242a\r\n\r\nIt was also confirmed at the meeting that one of the most serious reservations from opposition review — that registry ordering would be applied to wallet behaviour — was also alleviated: with reviewers accepting my summary that this ordering is only a default _in the list_ (providing a \"conditioning\" for otherwise unsortable data) but _not mandating a \"default\" **in the wallet itself**_.\r\n\r\nAssuming this condition is generally understood & implemented, there were only 3 more reservations mentioned by @papag00se that we agreed are accepted to the point where wallet implementations can now fairly review this proposal:\r\n\r\n1 - The CIP language is heavily geared toward NFT & policies vs. other means of resolving addresses... a better solution would invite \"agnosticism\" in addition to the policy-specific language: since some resolvers might not use tokens or policies at all for this (e.g. an asset-imitating data structure like https://github.com/cardano-foundation/CIPs/pull/1200 as I mentioned).\r\n\r\n2 - There will be some requirement to \"police\" the registry beyond what we have seen so far with other CIP registries.  I pointed out that these solutions must always be adaptive: for instance the CIP-0010 registry isn't considered insecure just because anyone can post disruptive metadata to a project's designated label.  It's understood that wallets will likewise have to choose their own measures to screen any disruptive elements in this registry.\r\n* @kingslavcho please commit to observing any CIP implementations to see if any common countermeasures emerge: since these should also be standardised in this CIP if possible.\r\n\r\n3 - Collision avoidance: still a concern, though this also would have been noted at the outset of _any_ treatment of this problem.  We noted for example that 1) very few ADA Handles end in `.did` but also that both users and wallets would find their own ways of working their way around this... and this CIP in any case leaves each wallet free to take its own approach about how the collision would be presented and resolved in its UI.\r\n\r\nNow as planned we have to turn this over to the **wallet developers** to see what they can offer to confirm or dispute the proposed improvement: which **will be far more important than CIP editors' opinions from this point onward**.  I am hoping some wallet representatives (@AlexDochioiu @francisluz @MarcelKlammer @zuzunker & please tag others) will agree with me that:\r\n* some standardisation eventually needs to happen in the \"Handles\" field, and\r\n* whatever wallet(s) address this issue, either though this CIP or any other solution to [CPS-0032](https://github.com/cardano-foundation/CIPs/tree/master/CPS-0032), might broaden their user base accordingly.",
+  "length": 3331,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1229#pullrequestreview-4965374782"
 }
 {
   "created_at": "2026-07-20T22:31:29Z",
@@ -60360,6 +60962,13 @@
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1232#pullrequestreview-4752675701"
 }
 {
+  "created_at": "2026-08-06T08:49:45Z",
+  "login": "perturbing",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1232#pullrequestreview-4872780976"
+}
+{
   "created_at": "2026-07-22T09:33:28Z",
   "login": "Ryun1",
   "body": "",
@@ -60409,6 +61018,13 @@
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1234#pullrequestreview-4766312470"
 }
 {
+  "created_at": "2026-08-04T08:36:30Z",
+  "login": "perturbing",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1234#pullrequestreview-4852239529"
+}
+{
   "created_at": "2026-07-31T21:42:47Z",
   "login": "rphair",
   "body": "@SeungheonOh thanks very much for documenting your implementation with a CIP.  The in-progress work I think makes it definite we would assign a CIP number in `Triage` at the next CIP meeting (https://hackmd.io/@cip-editors/140).\n\n@zliu41 @ana-pantilie @colll78 @Quantumplation @fallen-icarus if you could review the CIP technical presentation any time before or after its confirmation, that would be great.\n\n@kwxm it looks like performance is already also well documented here, but please likewise feel free to contribute about that presentation as well.",
@@ -60428,4 +61044,1117 @@
   "body": "",
   "length": 0,
   "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4839607777"
+}
+{
+  "created_at": "2026-08-03T03:05:24Z",
+  "login": "SeungheonOh",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4840529099"
+}
+{
+  "created_at": "2026-08-03T03:09:56Z",
+  "login": "SeungheonOh",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4840541537"
+}
+{
+  "created_at": "2026-08-03T03:15:21Z",
+  "login": "SeungheonOh",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4840556991"
+}
+{
+  "created_at": "2026-08-03T03:30:08Z",
+  "login": "SeungheonOh",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4840596877"
+}
+{
+  "created_at": "2026-08-03T03:49:40Z",
+  "login": "SeungheonOh",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4840652681"
+}
+{
+  "created_at": "2026-08-03T04:03:02Z",
+  "login": "SeungheonOh",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4840691455"
+}
+{
+  "created_at": "2026-08-03T06:34:07Z",
+  "login": "SeungheonOh",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4841374752"
+}
+{
+  "created_at": "2026-08-04T23:54:16Z",
+  "login": "rphair",
+  "body": "@SeungheonOh this was declared a candidate at the CIP meeting today, continuing the prior confirmations.  Going forward we will generally await the settlement of current & future review like what @michaelpj has already provided (please \"resolve\" the points that seem to be settled, since this might not always be clear to editors).\n\nOnce generally settled please feel free to explicitly point this out in a comment, so we can make sure it moves on to final / editorial review.  In the meantime please rename the containing directory to `CIP-0194` and update the \"Rendered\" link in your OP. 🎉",
+  "length": 591,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4859878250"
+}
+{
+  "created_at": "2026-08-05T22:01:16Z",
+  "login": "zliu41",
+  "body": "I need to review it in more detail, but here are some initial comments:\n- It's worth elaborating why \"A handler with the wrong number of arguments may therefore partially apply instead of failing\" is problematic\n- The baseline in your benchmark should use the new `dropList` builtin, if not already\n- It would be interesting to know how much this approach narrows the performance gap between Data encoding and SOP encoding. Can it close the gap entirely? If not, why?",
+  "length": 467,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4869165717"
+}
+{
+  "created_at": "2026-08-13T05:39:01Z",
+  "login": "kwxm",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4923750250"
+}
+{
+  "created_at": "2026-08-13T05:45:35Z",
+  "login": "kwxm",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4923781291"
+}
+{
+  "created_at": "2026-08-13T06:12:10Z",
+  "login": "kwxm",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4923917685"
+}
+{
+  "created_at": "2026-08-13T17:06:52Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4929645407"
+}
+{
+  "created_at": "2026-08-13T17:06:56Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4929645896"
+}
+{
+  "created_at": "2026-08-13T17:10:16Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4929673637"
+}
+{
+  "created_at": "2026-08-14T03:55:50Z",
+  "login": "kwxm",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4933790106"
+}
+{
+  "created_at": "2026-08-14T04:50:51Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4934087039"
+}
+{
+  "created_at": "2026-08-17T19:23:30Z",
+  "login": "rphair",
+  "body": "(@SeungheonOh I'm editing my comments in here since my last review crossed your own last posting above)\r\n\r\nThe scope of this CIP is still to achieve what was originally imagined & we see many cases like that over the course of a CIP PR lifetime.  So there is absolute no necessity (and, I believe, no advantage) in requiring a new PR for this. 😎",
+  "length": 345,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4953848690"
+}
+{
+  "created_at": "2026-08-18T20:07:50Z",
+  "login": "michaelpj",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4965299546"
+}
+{
+  "created_at": "2026-08-18T20:09:22Z",
+  "login": "michaelpj",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4965311949"
+}
+{
+  "created_at": "2026-08-18T20:11:12Z",
+  "login": "michaelpj",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4965326397"
+}
+{
+  "created_at": "2026-08-18T20:11:52Z",
+  "login": "michaelpj",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4965331926"
+}
+{
+  "created_at": "2026-08-18T20:12:18Z",
+  "login": "michaelpj",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4965335740"
+}
+{
+  "created_at": "2026-08-18T20:13:04Z",
+  "login": "michaelpj",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1236#pullrequestreview-4965341681"
+}
+{
+  "created_at": "2026-08-03T12:03:19Z",
+  "login": "lehins",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1237#pullrequestreview-4843793014"
+}
+{
+  "created_at": "2026-08-03T17:41:04Z",
+  "login": "rphair",
+  "body": "thanks @lehins for double checking - https://adastat.net/blocks/015882f2550987f52cf4bd7efef7262d705934ea9e3bd12f10fedb2f283f16bd",
+  "length": 128,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1237#pullrequestreview-4847030116"
+}
+{
+  "created_at": "2026-08-04T08:35:51Z",
+  "login": "perturbing",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1237#pullrequestreview-4852234531"
+}
+{
+  "created_at": "2026-08-04T12:19:00Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1237#pullrequestreview-4854228908"
+}
+{
+  "created_at": "2026-08-04T12:19:31Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1237#pullrequestreview-4854234492"
+}
+{
+  "created_at": "2026-08-03T19:59:06Z",
+  "login": "rphair",
+  "body": "thanks @zliu41; we will `Triage` this (consider for CIP candidacy) at the next CIP meeting tomorrow: https://hackmd.io/@cip-editors/140\n\nAt this point for a CIP on the border somewhere between Plutus and Ledger, we would also confirm that the bulk of the work & effects would be in the `Plutus` domain as opposed to `Ledger` (re: categorisation).\n\ncc @SeungheonOh @michaelpj",
+  "length": 374,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4848010404"
+}
+{
+  "created_at": "2026-08-04T06:40:09Z",
+  "login": "lehins",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4851033694"
+}
+{
+  "created_at": "2026-08-05T00:06:32Z",
+  "login": "rphair",
+  "body": "@zliu41 the CIP meeting today declared this as a candidate: mainly due to its apparent completeness & clarity and the fact that it immediately proceeded to expert review about the particulars.\r\n\r\nThankfully @colll78 was there to explain the importance of the definitions in this CIP (it wasn't clear to me on first reading at all).  We confirmed the `Plutus` category based on the point of view while agreeing neither the Ledger nor Plutus sides of the implementation would be \"hard\"... the greatest difficulty & care would be \"in the CIP itself\" to ensure this component will be secure and efficient and meet all the requirements @lehins would have for the Ledger implementation and its invariants.\r\n\r\n@colll78 also mentioned that user, cross-team, and dApp developer feedback will be important to confirm they can make their designs compatible with these definitions... @perturbing @Ryun1 we will have to look for opportunities to bring these parties into the discussion at appropriate stages in the review process.\r\n\r\nIn the meantime please @zliu41 rename the containing folder to `CIP-0195` and update the \"latest version\" link in your OP to reflect the new pathname. 🎉",
+  "length": 1173,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4859887620"
+}
+{
+  "created_at": "2026-08-05T15:12:23Z",
+  "login": "zliu41",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4865900751"
+}
+{
+  "created_at": "2026-08-06T01:50:09Z",
+  "login": "kwxm",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4870303663"
+}
+{
+  "created_at": "2026-08-06T01:52:11Z",
+  "login": "kwxm",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4870310205"
+}
+{
+  "created_at": "2026-08-06T01:54:51Z",
+  "login": "kwxm",
+  "body": "Corrections for a couple of typos.",
+  "length": 34,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4870323172"
+}
+{
+  "created_at": "2026-08-06T03:01:42Z",
+  "login": "SeungheonOh",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4870613243"
+}
+{
+  "created_at": "2026-08-06T06:02:51Z",
+  "login": "lehins",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4871515687"
+}
+{
+  "created_at": "2026-08-06T22:52:50Z",
+  "login": "zliu41",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4878606468"
+}
+{
+  "created_at": "2026-08-08T01:51:03Z",
+  "login": "kwxm",
+  "body": "I don't have a lot to say about the substance of the proposal: my comments were mostly small quibbles about presentation.  There seem to be  number of discrepancies between the types specified here and the types currently implemented in`PlutusLedgerApi.V4` though",
+  "length": 263,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4887553737"
+}
+{
+  "created_at": "2026-08-08T01:54:05Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4887810904"
+}
+{
+  "created_at": "2026-08-08T01:56:56Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4887817350"
+}
+{
+  "created_at": "2026-08-08T03:43:35Z",
+  "login": "kwxm",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4888013864"
+}
+{
+  "created_at": "2026-08-10T16:51:54Z",
+  "login": "colll78",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4899097126"
+}
+{
+  "created_at": "2026-08-10T16:53:29Z",
+  "login": "colll78",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4899108729"
+}
+{
+  "created_at": "2026-08-10T17:14:16Z",
+  "login": "zliu41",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4899262249"
+}
+{
+  "created_at": "2026-08-10T17:15:15Z",
+  "login": "zliu41",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4899269355"
+}
+{
+  "created_at": "2026-08-10T17:16:28Z",
+  "login": "zliu41",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4899277997"
+}
+{
+  "created_at": "2026-08-10T17:20:10Z",
+  "login": "zliu41",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4899304386"
+}
+{
+  "created_at": "2026-08-12T05:13:45Z",
+  "login": "kwxm",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4913221243"
+}
+{
+  "created_at": "2026-08-12T21:16:20Z",
+  "login": "kwxm",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4921199293"
+}
+{
+  "created_at": "2026-08-16T02:34:34Z",
+  "login": "zliu41",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4945213571"
+}
+{
+  "created_at": "2026-08-17T13:10:29Z",
+  "login": "colll78",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4951938757"
+}
+{
+  "created_at": "2026-08-17T13:15:38Z",
+  "login": "colll78",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4951983384"
+}
+{
+  "created_at": "2026-08-17T13:17:26Z",
+  "login": "colll78",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4952003370"
+}
+{
+  "created_at": "2026-08-17T13:18:10Z",
+  "login": "colll78",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4952009793"
+}
+{
+  "created_at": "2026-08-17T14:07:41Z",
+  "login": "lehins",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4952257436"
+}
+{
+  "created_at": "2026-08-17T20:53:28Z",
+  "login": "zliu41",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4954480180"
+}
+{
+  "created_at": "2026-08-18T00:22:58Z",
+  "login": "lehins",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4955826101"
+}
+{
+  "created_at": "2026-08-18T00:28:11Z",
+  "login": "lehins",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4955867278"
+}
+{
+  "created_at": "2026-08-22T00:46:43Z",
+  "login": "colll78",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-4998405470"
+}
+{
+  "created_at": "2026-09-02T03:32:11Z",
+  "login": "lehins",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1238#pullrequestreview-5085158666"
+}
+{
+  "created_at": "2026-08-10T06:47:02Z",
+  "login": "perturbing",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1240#pullrequestreview-4894281907"
+}
+{
+  "created_at": "2026-08-13T09:27:07Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1240#pullrequestreview-4925464875"
+}
+{
+  "created_at": "2026-08-05T17:36:19Z",
+  "login": "rphair",
+  "body": "Thanks @Scitz0 for providing such complete background info with your registry addition.",
+  "length": 87,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1241#pullrequestreview-4867121367"
+}
+{
+  "created_at": "2026-08-18T14:35:20Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1241#pullrequestreview-4962264864"
+}
+{
+  "created_at": "2026-08-07T10:23:03Z",
+  "login": "perturbing",
+  "body": "Hi Pawel very nice CIP; this was also on my mind!\n\nI really like the dual route of signature and proof; it's smart to optionally bind still to the old path (in case the zk has a bug or QC takes a while still).\n\nA few initial review + questions below",
+  "length": 249,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4881879149"
+}
+{
+  "created_at": "2026-08-07T15:58:43Z",
+  "login": "AndrewWestberg",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4884454220"
+}
+{
+  "created_at": "2026-08-07T17:33:17Z",
+  "login": "rphair",
+  "body": "thanks @paweljakubas and I feel sure we will be ready to confirm this as a candidate in `Triage` at the next CIP meeting: https://hackmd.io/@cip-editors/141\r\n\r\nNow that it's being reviewed, please make sure any further forced pushes also contain any commits to this PR branch from other reviewers / GitHub UI 🙏 (to demonstrate constructive peer review).\r\n\r\ncc reviewers on PQ CIPs so far (besides @perturbing): @kozross @hjeljeli32 @mgajda  + ecosystem impact: @ptrdsh @KtorZ",
+  "length": 475,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4885046506"
+}
+{
+  "created_at": "2026-08-07T17:38:30Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4885204640"
+}
+{
+  "created_at": "2026-08-07T17:40:52Z",
+  "login": "AndrewWestberg",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4885221592"
+}
+{
+  "created_at": "2026-08-08T09:36:21Z",
+  "login": "perturbing",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4888570721"
+}
+{
+  "created_at": "2026-08-10T07:34:04Z",
+  "login": "paweljakubas",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4894558520"
+}
+{
+  "created_at": "2026-08-10T07:36:14Z",
+  "login": "paweljakubas",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4894571953"
+}
+{
+  "created_at": "2026-08-10T07:48:53Z",
+  "login": "paweljakubas",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4894650244"
+}
+{
+  "created_at": "2026-08-10T07:53:51Z",
+  "login": "paweljakubas",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4894684718"
+}
+{
+  "created_at": "2026-08-10T11:40:51Z",
+  "login": "paweljakubas",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4896325022"
+}
+{
+  "created_at": "2026-08-10T17:43:54Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4899481712"
+}
+{
+  "created_at": "2026-08-10T17:58:01Z",
+  "login": "rphair",
+  "body": "@paweljakubas, per your review request: I've been following the technical review with interest, though not qualified to participate beyond presentation issues & accumulating points of others' expert review to assess when this might be complete + soliciting other reviews as may be needed.\n\nCurrently we just have to keep working on https://github.com/cardano-foundation/CIPs/pull/1242#discussion_r3751943372 re: the formatting question of whether your references would look better as a footnoted list of references or direct external links from the document.",
+  "length": 558,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4899533145"
+}
+{
+  "created_at": "2026-08-11T07:56:40Z",
+  "login": "paweljakubas",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4904074458"
+}
+{
+  "created_at": "2026-08-11T08:29:33Z",
+  "login": "perturbing",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4904311345"
+}
+{
+  "created_at": "2026-08-11T08:32:20Z",
+  "login": "paweljakubas",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4904336946"
+}
+{
+  "created_at": "2026-08-11T08:32:37Z",
+  "login": "paweljakubas",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4904339625"
+}
+{
+  "created_at": "2026-08-11T08:53:03Z",
+  "login": "paweljakubas",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4904489101"
+}
+{
+  "created_at": "2026-08-11T19:25:25Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4909964010"
+}
+{
+  "created_at": "2026-08-11T19:27:05Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4909978125"
+}
+{
+  "created_at": "2026-08-11T19:35:21Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4910039665"
+}
+{
+  "created_at": "2026-08-11T19:36:33Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4910048697"
+}
+{
+  "created_at": "2026-08-11T19:36:45Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4910050212"
+}
+{
+  "created_at": "2026-08-11T19:59:20Z",
+  "login": "perturbing",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4910228544"
+}
+{
+  "created_at": "2026-08-11T20:02:26Z",
+  "login": "rphair",
+  "body": "@paweljakubas thanks for your continued work, in appreciation for the technical discussion & with my apologies that the formatting issues have been a distraction.\r\n\r\nYour latest changes to fix the problem I pointed out in https://github.com/cardano-foundation/CIPs/pull/1242#discussion_r3737610178 are very different than what's used in other CIPs: _either_ shortcut (embedded) reference links _or_ Footnotes which would work best for your material.  Instead you have created HTML links, e.g.:\r\n- from: `[ZKPoSP](#ZKPoSP)`\r\n- to: `<a id=\"ZKPoSP\"></a>[ZKPoSP] Botta, Pospieszalski, Ragnoli, Ranvier, \"ZKPoSP: ...`\r\n\r\n... which:\r\n* only go in 1 direction (unlike Footnotes which link back to their place in the original document);\r\n* aren't highlighted when the reader arrives there (they can only see all the References at the end of the document);\r\n* aren't portable Markdown: so we have no guarantee they will work when published on `cips.cardano.org`... which I'm guessing is important to you since all your other CIP references link there.\r\n\r\nI don't want to take time away from your technical writing & review response, and so _if you need me to edit the document to install the footnotes properly then please say the word_ and I'll do it.\r\n\r\nAlternatively: if you have a particular reason not to use either of the GitHub Markdown standard linking styles I described in https://github.com/cardano-foundation/CIPs/pull/1242#discussion_r3751943372, then please also confirm this: so the editors can acknowledge your author's prerogative in initial review and be prepared that the reference links won't work on `cips.cardano.org` (since it generally doesn't copy raw HTML).",
+  "length": 1674,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4910250239"
+}
+{
+  "created_at": "2026-08-12T08:22:53Z",
+  "login": "perturbing",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4914455274"
+}
+{
+  "created_at": "2026-08-12T08:54:38Z",
+  "login": "paweljakubas",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4914714485"
+}
+{
+  "created_at": "2026-08-12T09:19:23Z",
+  "login": "perturbing",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4914920150"
+}
+{
+  "created_at": "2026-08-12T09:50:56Z",
+  "login": "paweljakubas",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4915172613"
+}
+{
+  "created_at": "2026-08-13T17:26:09Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4929792956"
+}
+{
+  "created_at": "2026-08-13T17:30:20Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4929825957"
+}
+{
+  "created_at": "2026-08-13T17:39:49Z",
+  "login": "rphair",
+  "body": "@paweljakubas it looks like all the issues above are resolved except the technical subjects under consideration — as it should be :) — except the one (https://github.com/cardano-foundation/CIPs/pull/1242#discussion_r3761293613) of the _Proving Backend Options_ still planted in the middle of your _Path to Active_.\n\nWe will have a great `Triage` of this at the next CIP meeting (https://hackmd.io/@cip-editors/141) regardless: and if the document ordering issue is not fixed by then, we can confirm my recommendation or get alternate suggestions from other editors.\n\nIn any case I think the community at large will be very happy to see this under way.  As soon as we assign a CIP number on Tuesday (which I will recommend) we can push this out a little further across Cardano work areas to get a broad-spectrum review.",
+  "length": 818,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4929912714"
+}
+{
+  "created_at": "2026-08-18T19:35:53Z",
+  "login": "rphair",
+  "body": "@paweljakubas this was well received at the CIP meeting: confirmed a candidate as expected, with great appreciation for the proposal even with the disclaimer that this is an \"intermediate\" rather than general solution of the post-quantum problem for asset security.\r\n\r\nWe expect that technical review will go on for a while and so please comment when you feel it has stabilised (before a editorial review to merge) or whenever you might need a higher bandwidth discussion for unresolved technical issues — e.g. via a Discord channel or a spot on the CIP meeting agenda.\r\n\r\nAs soon as possible in the review process please follow the advisement in https://github.com/cardano-foundation/CIPs/pull/1242#discussion_r3761293613 to disperse the _Proving Backend Options_ from where it hangs in the middle of your _Path to Active_.\r\n* Specialist reviewers will be interested in all these topics and should review the document as a whole _after_ this material is properly factored into your _Rationale_ and/or _Specification_.\r\n\r\nIn the meantime please rename the containing directory to `CIP-0197` and update the \"latest rendered version\" link in your OP 🎉",
+  "length": 1149,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4965038583"
+}
+{
+  "created_at": "2026-08-31T15:34:13Z",
+  "login": "rphair",
+  "body": "@paweljakubas it's great news for Cardano that you think NovaSlim will work here & that you've documented this so comprehensively. 🎉\r\n\r\nNow more than ever, especially since more items are going into the ***Proving Backend Options*** which we've asked you to move out of its inappropriate place in the middle of _Path to Active_, before this material gets widespread technical review **we need you to move it** (as I've asked a couple times before above, with reasons) to:\r\n* _Specification_ if you think each of these options will serve different parts of the spec\r\n* _Rationale_ if this comparison will ultimately serve a smaller number of design choices... and the fact that you're leaning on NovaSlim now makes this the logical choice.\r\n* (perhaps both: if you can break it up accordingly)\r\n\r\nAlthough you have graciously given the CIP editors write permission to your branch, I'm hoping not to do this myself: just moving the section bodily would be clumsy compared to the care you've taken with the flow of the rest of the document.  But the editors cannot merge it the way it is now, and we need reviewers to review these options _in place_ rather than changing the structure & maybe the content at the last minute before merge.",
+  "length": 1234,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-5068282688"
+}
+{
+  "created_at": "2026-09-01T15:31:40Z",
+  "login": "rphair",
+  "body": "@paweljakubas the latest change looks great: the _Path to Active_ is now easy to follow (though as you suggest, we will be cautious about announcing this as a \"solution\") and the moved material looks natural where you have moved it to.\n\nSince it's been nearly a month since we tagged our limited set of prior PQ-informed reviewers (https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-4885046506) the editors may rely on you to tag others working in this space & to announce when you believe all interested parties have had an opportunity to comment on this.\n* Once you do that (or if we notice that \"enough\" time has gone by) we would mark this for final review & possible merge at an upcoming CIP meeting.",
+  "length": 725,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1242#pullrequestreview-5079979183"
+}
+{
+  "created_at": "2026-08-12T03:24:38Z",
+  "login": "rphair",
+  "body": "Thanks @aniketd for the upkeep on this CIP; I've set this for `Triage` at our CIP meeting next week (https://hackmd.io/@cip-editors/141): we may move it up to `Last Check` if we can authenticate this in the meantime, especially if you or other reviewers can link it to work in progress on `cardano-ledger`.\n\nOther CIP-0159 contributors please feel free to review: @fallen-icarus @GeorgeFlerovsky @lehins @polinavino @colll78 @Quantumplation @michele-nuzzi @mpizenberg @AlexDochioiu ",
+  "length": 482,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1243#pullrequestreview-4912767781"
+}
+{
+  "created_at": "2026-08-12T09:32:19Z",
+  "login": "carlostome",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1243#pullrequestreview-4915024274"
+}
+{
+  "created_at": "2026-08-12T09:35:20Z",
+  "login": "carlostome",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1243#pullrequestreview-4915046763"
+}
+{
+  "created_at": "2026-08-12T09:39:10Z",
+  "login": "carlostome",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1243#pullrequestreview-4915075614"
+}
+{
+  "created_at": "2026-08-12T13:20:08Z",
+  "login": "aniketd",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1243#pullrequestreview-4916930939"
+}
+{
+  "created_at": "2026-08-12T14:41:15Z",
+  "login": "aniketd",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1243#pullrequestreview-4917786532"
+}
+{
+  "created_at": "2026-08-12T15:46:21Z",
+  "login": "aniketd",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1243#pullrequestreview-4918433472"
+}
+{
+  "created_at": "2026-08-17T17:37:21Z",
+  "login": "fallen-icarus",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1243#pullrequestreview-4953115266"
+}
+{
+  "created_at": "2026-08-24T20:14:01Z",
+  "login": "lehins",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1243#pullrequestreview-5012129071"
+}
+{
+  "created_at": "2026-08-13T00:06:03Z",
+  "login": "rphair",
+  "body": "thanks @kwxm — looks like a promising CPS and I look forward to setting this up in `Triage` — but our validator script ([currently failing](https://github.com/cardano-foundation/CIPs/actions/runs/31568128892/job/94024179509?pr=1244)) and maybe some human reviewers would expect a CIP here because of the directory name `CIP-conformance-property-tests`.\r\n\r\nRenaming a directory is hard to do transparently from the GitHub UI so can you please **ASAP rename the containing directory** to something like `CPS-conformance-property-tests` and so set reviewers' and the validator's expectations appropriately?\r\n\r\nOnce that's done we can schedule this for confirmation at the next CIP meeting and tag some of the node team representatives for a first look.",
+  "length": 749,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1244#pullrequestreview-4922175793"
+}
+{
+  "created_at": "2026-08-13T04:03:06Z",
+  "login": "kwxm",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1244#pullrequestreview-4923271851"
+}
+{
+  "created_at": "2026-08-13T04:04:50Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1244#pullrequestreview-4923278220"
+}
+{
+  "created_at": "2026-08-13T04:07:00Z",
+  "login": "rphair",
+  "body": "Ready for `Triage` at next CIP meeting (anyone interested is invited as always); just a check to confirm this & not a detailed discussion: https://hackmd.io/@cip-editors/141\n\nTagging some more members of other node teams to start the discussion from that side: @Quantumplation @wolf31o2 @scarmuega @michaeljfazio @michele-nuzzi @mercurial @sierkov",
+  "length": 347,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1244#pullrequestreview-4923286280"
+}
+{
+  "created_at": "2026-08-13T04:08:27Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1244#pullrequestreview-4923291931"
+}
+{
+  "created_at": "2026-08-18T19:08:56Z",
+  "login": "rphair",
+  "body": "@kwxm the editors & observers at the CIP meeting today were happy to confirm this: especially appreciating the participation of @yHSJ @Quantumplation from the first significant node project and noting that representatives from all other apparently viable node projects have also been [invited](https://github.com/cardano-foundation/CIPs/pull/1244#pullrequestreview-4923286280) for review.\n\nAs soon as that feedback settles and is fully accommodated into the CPS, please post as such: since the editors generally won't know when the lack of additional review signifies our best consensus.  In the meantime please rename the containing directory to `CPS-0034` and update the \"rendered proposal\" link in your OP 🎉",
+  "length": 710,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1244#pullrequestreview-4964796346"
+}
+{
+  "created_at": "2026-08-19T00:03:57Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1244#pullrequestreview-4967195623"
+}
+{
+  "created_at": "2026-08-18T14:41:25Z",
+  "login": "rphair",
+  "body": "thanks @Unisay & also noting that it adds IOG Plutus Team as implementor.  Tagging our usual list of CIP-0156 reviewers — @zliu41 @colll78 @ana-pantilie @fallen-icarus @SeungheonOh — and marking this for `Triage` to confirm the update while we wait for Plutus experts to settle review on the change.",
+  "length": 299,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1245#pullrequestreview-4962325207"
+}
+{
+  "created_at": "2026-08-18T15:10:51Z",
+  "login": "rphair",
+  "body": "thanks @Ryun1 - the validator will be working overtime so I'm sure we'll know straight away if this doesn't work 😅 and the changes look good to me (cc @perturbing — we've only seen this once in 1000+ PRs so we may not get another test case for a while so I'm mainly interested a quick merget to observe the validator itself still works)\r\n\r\n(p.s. recategorising to `Meta` to follow the grain of the other validator issues/PRs)",
+  "length": 425,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1246#pullrequestreview-4962641960"
+}
+{
+  "created_at": "2026-08-18T16:57:29Z",
+  "login": "perturbing",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1246#pullrequestreview-4963639187"
+}
+{
+  "created_at": "2026-08-19T11:35:39Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1247#pullrequestreview-4971644918"
+}
+{
+  "created_at": "2026-09-01T15:55:31Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1248#pullrequestreview-5080212848"
+}
+{
+  "created_at": "2026-08-20T23:12:12Z",
+  "login": "rphair",
+  "body": "Thanks @ch1bo as before for keeping this maintained while the project develops.  My gut feeling is that such PRs should always be merged soon (cc @Ryun1 @perturbing) when they reflect work that has already achieved consensus through implementation itself.\r\n* So first: please post if I am wrong about assuming you would be happy this was merged right away... vs. having a public discussion about the proposed changes.\r\n* Even if you'd be happy to put it through now, editors generally ask for at least one \"second\" from the project to approve the changes (please tag some if not covered below; cc primary author @will-break-it).\r\n\r\nAlso authors of these still-open PRs & their reviewers might look out for inconsistencies, duplicated changes & merge conflicts:\r\n* @coot (still a draft): https://github.com/cardano-foundation/CIPs/pull/1227 (review: @nfrisby)\r\n* @ch1bo: https://github.com/cardano-foundation/CIPs/pull/1213 (review: @Quantumplation @fallen-icarus @lehins \r\n",
+  "length": 973,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1250#pullrequestreview-4988303195"
+}
+{
+  "created_at": "2026-08-20T23:15:21Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1250#pullrequestreview-4988342862"
+}
+{
+  "created_at": "2026-08-25T17:10:02Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1250#pullrequestreview-5021764341"
+}
+{
+  "created_at": "2026-09-01T19:46:12Z",
+  "login": "rphair",
+  "body": "Confirmed as a valid & update at the CIP meeting today... with @ch1bo planning to get some specialist team feedback this week.  I've personally noted to editorially review this (likely approving, if no dispute) in around 1 week to ensure this stays on track for `Last Check` at the next CIP meeting unless any problem / unresolved discussion emerges.\r\n\r\n**p.s.** this was also confirmed not to have any dependencies with the 2 concurrent (1 live, 1 draft) Leios CIP PR threads I linked above: although these were mainly referenced in hope the advocates & reviewers of these PRs will also be interested in reviewing this one.",
+  "length": 624,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1250#pullrequestreview-5082366715"
+}
+{
+  "created_at": "2026-09-01T15:35:05Z",
+  "login": "Ryun1",
+  "body": "Good add, thanks Robert!",
+  "length": 24,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1251#pullrequestreview-5080012813"
+}
+{
+  "created_at": "2026-08-24T23:23:34Z",
+  "login": "rphair",
+  "body": "@nemo83 thanks for the upkeep on this specification: marking for `Triage` at next week's CIP meeting: https://hackmd.io/@cip-editors/142\n\nI agree with your comment below that this would be free to change liberally because yours is the only current implementation.  However I'm not not putting this at `Last Check` — as we normally might for such an update — because we would also categorically check some other features:\n* @colll78 and maybe @Ryun1 will likely want to check on the approach to versioning since it's introduced to the CIP with this update.\n* @KtorZ might be interested in the Aiken-specific architecture.\n* However unlikely this may be: if _anyone_ is working on some unknown implementation of this CIP, please post here and we would be happy for your review as well.\n\nWith supportive review all around (or any concerns fixed) we might approve & move this up to `Last Check` at the next meeting.",
+  "length": 911,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1252#pullrequestreview-5013430369"
+}
+{
+  "created_at": "2026-09-01T16:14:42Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1252#pullrequestreview-5080395790"
+}
+{
+  "created_at": "2026-09-01T19:57:52Z",
+  "login": "rphair",
+  "body": "@nemo83 this was confirmed as a valid update, as expected, at the CIP meeting today with an expected fast track towards `Last Check` at the following meeting.\r\n\r\nI had mistaken your Discord posting \"back in 2 weeks\" for an indication you would be away in the meantime 😅 but now I realise you were simply talking about the next meeting date: so have marked it `Last Check` in the assumption that you will resolve any review issues before then: https://hackmd.io/@cip-editors/143",
+  "length": 477,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1252#pullrequestreview-5082488332"
+}
+{
+  "created_at": "2026-09-01T19:59:09Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1252#pullrequestreview-5082501416"
+}
+{
+  "created_at": "2026-08-25T12:41:08Z",
+  "login": "styamanda",
+  "body": "Thanks @Kammerlo — this is more thorough than I expected, and it resolves both things I asked about: it pins down *which* bytes (the metadatum value only, not the label/value pair or the whole map), and it states plainly that JSON representations cannot be used.\n\n**I verified the test vector independently** and every value in it checks out:\n\n| | |\n|---|---|\n| Vector 1 CBOR | decodes to exactly the JSON shown, in construction order ✅ |\n| Vector 2 CBOR | same content, keys length-then-bytewise ✅ |\n| Blake3-256 of vector 1 | `ea4c2099…d75f391` — matches ✅ |\n| CESR qb64 | `EOpMIJmAaiP4cZgmDkg8rVtl8YU4dDYf_gxrK2sNdfOR` — matches ✅ |\n| Vector 2 qb64 | `EIswjSN1u14y36RGf6TKm-z65R0rMMLjQHnjXofImTmZ` — matches ✅ |\n\nComputed with `signify-ts`' `Diger`, independently of whatever produced them. Having a vector where the *wrong* answer is also given is a nice touch — an implementer who lands on `EIswjSN1…` immediately knows what they did.\n\nTwo suggestions, one substantive.\n\n**1. Warn about the ordering between anchoring and building.** The text says to digest \"the bytes that will be (or were) submitted\", which is right, but understates a trap. `d` has to be anchored in the KEL *before* the transaction is built, and the KEL is append-only — so if the builder's encoding differs at all from what was digested, the attestation is permanently unverifiable and a sequence number has been burned on a bad anchor. Most builders take a JSON-ish object and encode it themselves, so the issuer does not directly control the emitted bytes; `schemaVersion: 1` as `01` versus `1901` is enough to break it.\n\nSomething like:\n\n> Because the KEL anchor is created before the transaction exists and cannot be retracted, implementations SHOULD extract the encoded metadatum bytes from the built transaction and confirm they digest to `d` before submitting.\n\nThat is a cheap check and it converts a permanent failure into a caught one.\n\n**2. Minor: the worked example is now less self-consistent than the test vector.** The `ATTEST` example at label `1447` still carries `\"{{someApplicationMetadata}}\"` alongside a concrete digest, so a reader cannot check it — while the new §Digest computation gives fully reproducible values. Using the test vector's payload in the worked example would make the whole document verifiable end to end.\n\nNeither blocks merging from my side. We will implement against this text — our current implementation digests a canonicalised JSON form, which was a workaround for exactly this gap — and I will report back on whether the spec was sufficient to implement from without rediscovering anything.\n",
+  "length": 2615,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1253#pullrequestreview-5018965912"
+}
+{
+  "created_at": "2026-08-25T17:43:34Z",
+  "login": "rphair",
+  "body": "@Kammerlo @styamanda this is scheduled to confirm as a CIP update (`Triage`) at the next CIP meeting — https://hackmd.io/@cip-editors/142 — although if both of you agree that the changes are finalised I'll approve it myself & promote this to `Last Check` at that meeting.\n\nI'll also tag the other editors for advance review as soon as that happens.  Of course any pending or even hypothetical implementors of CIP-0170 are also encouraged to comment here in the meantime.",
+  "length": 470,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1253#pullrequestreview-5022056214"
+}
+{
+  "created_at": "2026-09-01T20:03:02Z",
+  "login": "rphair",
+  "body": "yes @Kammerlo since that appears to resolve the last reservation: pending any further testing as this develops & @styamanda submitting a further update if & when needed.  This will be ready for `Last Check` at the next CIP meeting.\r\n\r\n@styamanda if there is anything further you think could/should change to save you & perhaps other implementors the trouble later, please feel free to suggest further changes in the meantime.",
+  "length": 425,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1253#pullrequestreview-5082536689"
+}
+{
+  "created_at": "2026-08-29T16:30:01Z",
+  "login": "rphair",
+  "body": "thanks @skoniog & team: this is a well-presented draft & looks like a useful proposal.  Please also remove the initially self-assigned number `198` from the internal review introduction here (instead of \"tentatively CIP-0198\" you could say \"CIP number pending review\"):\r\n* https://github.com/cardano-scaling/hydra/issues/2818#issuecomment-5461241435\r\n\r\nWhen done with that internal review please take this out of `Draft` mode and/or post here in the CIP PR thread and we'll begin our initial CIP review with `Triage`, and feel free to invite anyone working in this field for initial response to this content in the meantime (cc @Crypto2099).",
+  "length": 641,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1254#pullrequestreview-5058607649"
+}
+{
+  "created_at": "2026-08-31T16:43:30Z",
+  "login": "rphair",
+  "body": "Thanks @carlostome for bringing this up... @lehins ~~@WhatisRT~~ can you verify that this is consistent with today's ledger spec?\r\n\r\nAlso please @fallen-icarus @polinavino @perturbing post what you think about whether this is consistent with what implementors would expect or if anything about the change would warrant a deeper review.",
+  "length": 335,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1256#pullrequestreview-5068911874"
+}
+{
+  "created_at": "2026-08-31T17:30:46Z",
+  "login": "lehins",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1256#pullrequestreview-5069346970"
+}
+{
+  "created_at": "2026-08-31T17:32:21Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1256#pullrequestreview-5069360500"
+}
+{
+  "created_at": "2026-09-01T15:56:10Z",
+  "login": "Ryun1",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1256#pullrequestreview-5080219033"
+}
+{
+  "created_at": "2026-09-01T02:40:11Z",
+  "login": "rphair",
+  "body": "Thanks @polinavino @will-break-it @dalibran @nhenin for such a ground-breaking submission: it's on the CIP meeting agenda tomorrow for `Triage` and please feel welcome to attend (which may be helpful if we end up talking about the CIP scope): https://hackmd.io/@cip-editors/142\r\n\r\nI believe it would be a good start to get review from (any time, before or after the meeting):\r\n* @fallen-icarus: deep CIP-0118 review, Beacon Tokens, applications of P2P swaps\r\n* @lehins @carlostome @williamdemeo: Ledger types & encoding herein\r\n* @jpraynaud: the DMQ integration\r\n* @colll78: general architecture, security, efficiency\r\n\r\nMy main question (proceeding also to a `Title:` discussion below, I hope): it seems this architecture would be applicable to other types of swap offers in addition to babel fee offers; so:\r\n* Is this CIP about the whole `Service Layer for Nested Transactions` and therefore should have a more general title; rather than leading with \"Babel Fee Offers\" which might only be one of its use cases?\r\n* If so, then would it be more clear to have \"Babel Fee Offers\" listed as its own category of the specification: perhaps with other sections for other kinds of swap offers?\r\n\r\nI am certainly not demanding this, but this seems like such a promising architecture that the use cases of this service — and the service itself — might each be more clear if described _in its own CIP_: <ins>if</ins> you also think that would be easier for a general audience to understand as you may be gathering popular support for work on implementations; e.g. ultimately CIPs titled:\r\n* `Nested Transactions` (CIP-0118 itself)\r\n* `Nested Transactions - Service Layer` (the commonly usable part of this proposal)\r\n* `Nested Transactions - Babel Fee Offers` (the part of this draft for that use case)\r\n* `Nested Transactions - Swap Market` (future / hypothetical)\r\n\r\n... following the convention of other related CIPs such as [Web-Wallet Bridge](https://cips.cardano.org/search?q=web-wallet%20bridge).",
+  "length": 1995,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1257#pullrequestreview-5073334615"
+}
+{
+  "created_at": "2026-09-01T02:45:33Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1257#pullrequestreview-5073476043"
+}
+{
+  "created_at": "2026-09-01T13:56:26Z",
+  "login": "polinavino",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1257#pullrequestreview-5078936832"
+}
+{
+  "created_at": "2026-09-01T14:26:40Z",
+  "login": "fallen-icarus",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1257#pullrequestreview-5079270126"
+}
+{
+  "created_at": "2026-09-01T21:08:35Z",
+  "login": "rphair",
+  "body": "@polinavino we confirmed this as a candidate at the CIP meeting today based on understanding that — regardless of any further partitioning of this material as suggested above (e.g. with \"babel fees\" factored out into a different CIP) — that `this` PR will be for a CIP describing the essential Service Layer: acknowledged all around to be important to the Cardano economy & abundantly described here already.\n\nWe would look forward to hearing your and your team's response to that refactoring suggestion when you get back... in the meantime please rename the containing directory to `CIP-0198` and update the \"Rendered\" link in your OP 🎉",
+  "length": 637,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1257#pullrequestreview-5083125339"
+}
+{
+  "created_at": "2026-09-02T15:52:42Z",
+  "login": "polinavino",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1257#pullrequestreview-5091933419"
+}
+{
+  "created_at": "2026-09-02T16:32:14Z",
+  "login": "fallen-icarus",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1257#pullrequestreview-5092333570"
+}
+{
+  "created_at": "2026-09-02T16:34:52Z",
+  "login": "polinavino",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1257#pullrequestreview-5092357627"
+}
+{
+  "created_at": "2026-09-02T20:19:24Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1257#pullrequestreview-5094661156"
+}
+{
+  "created_at": "2026-09-02T20:20:38Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1257#pullrequestreview-5094672233"
+}
+{
+  "created_at": "2026-09-03T12:52:48Z",
+  "login": "polinavino",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1257#pullrequestreview-5102115654"
+}
+{
+  "created_at": "2026-09-01T20:43:25Z",
+  "login": "rphair",
+  "body": "@ch1bo yes I believe that having you on the team at the very least will help avoid deadlock when one or more of the usual CIP editors are not present: especially with PRs submitted by editors themselves.  And of course your specialities will be welcome in technical review & a closer bandwidth connection would be welcome.\n\nI'll be happy to approve this & ping the other editors about it when we can fix a little formatting issue:",
+  "length": 430,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1258#pullrequestreview-5082907555"
+}
+{
+  "created_at": "2026-09-02T10:26:33Z",
+  "login": "ch1bo",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1258#pullrequestreview-5088452603"
+}
+{
+  "created_at": "2026-09-02T15:20:28Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1258#pullrequestreview-5091588679"
+}
+{
+  "created_at": "2026-09-02T15:25:20Z",
+  "login": "rphair",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1258#pullrequestreview-5091640412"
+}
+{
+  "created_at": "2026-09-02T15:33:21Z",
+  "login": "rphair",
+  "body": "Fixes https://github.com/cardano-foundation/CIPs/pull/1258#discussion_r3908261989 — @ch1bo for repo submissions that aren't directly the work of `cardano-scaling` team, please use your personal GitHub account: editors generally have to tweak each other's PRs (e.g. this is an edit we should have been able to do directly & immediately) 🙏",
+  "length": 337,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1258#pullrequestreview-5091676910"
+}
+{
+  "created_at": "2026-09-03T07:16:20Z",
+  "login": "ch1bo",
+  "body": "",
+  "length": 0,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1258#pullrequestreview-5098930688"
+}
+{
+  "created_at": "2026-09-03T16:18:13Z",
+  "login": "rphair",
+  "body": "looks even better ⭐",
+  "length": 19,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1258#pullrequestreview-5104245910"
+}
+{
+  "created_at": "2026-09-03T00:35:04Z",
+  "login": "rphair",
+  "body": "thanks @ptrdsh @KtorZ for picking up this subject again; first order of business would be continuing some ideas from prior discussion in:\r\n* https://github.com/cardano-foundation/CIPs/pull/1157\r\n* cc @disassembler @Crypto2099 @gufmar @ch1bo @lehins @gitmachtl\r\n\r\nPersonally I was in favour of this idea when it came out and I was surprised to see the CIP PR on this subject come to an end before discussion was concluded.  I think the authors found that their suggestion met with a community that haggled over the specifics & felt this would be too difficult to reconcile.  Hopefully the more gradual CPS route will be a way to break down & settle these differences in advance.\r\n\r\nIn any case we should be ready for `Triage` by the next CIP meeting where you & any advocates or critics would be welcome to introduce this: https://hackmd.io/@cip-editors/143\r\n* In the meantime: there are several differences from standard CPS format, as per [current validator output](https://github.com/cardano-foundation/CIPs/actions/runs/33696977157/job/100467856268?pr=1260)\r\n* So please @ptrdsh wrestle with the validation checker at the bottom of this page until you get a green light (and post for help if unclear what to do)... I don't want to disrupt what I expect will be a lively social & technical discussion, as this topic reemerges, with formatting edits.",
+  "length": 1351,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1260#pullrequestreview-5096543437"
+}
+{
+  "created_at": "2026-09-03T00:44:00Z",
+  "login": "rphair",
+  "body": "**p.s.** to https://github.com/cardano-foundation/CIPs/pull/1260#pullrequestreview-5096543437: it's not obvious from the context that monitoring requirements would exclude non-software components such as:\r\n* physical RAM, number of CPUs, processor architecture\r\n* host topology (real vs. virtual)\r\n* network topology: perhaps actual geolocation (since APIs are unreliable)\r\n\r\nso...",
+  "length": 381,
+  "html_url": "https://github.com/cardano-foundation/CIPs/pull/1260#pullrequestreview-5096645908"
 }
