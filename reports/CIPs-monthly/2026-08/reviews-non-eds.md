@@ -1,36 +1,3 @@
-## CIPs repo review stats - monthly - August 2026
-
-### [CIP editors only](reviews-editors.md)
-
-```bash
-curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-monthly/reviews.txt \
-  | grep ^2026-08 \
-  | awk '$2 ~ /^(rphair|Ryun1|perturbing)$/' \
-  | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report) \
-  > reviews-editors.md
-```
-
-| ***user*** | ***review SIZE*** | ***% total 162738*** |
-| --- | --- | --- |
-| rphair | 157011 | 96.480% |
-| perturbing | 4602 | 2.827% |
-| Ryun1 | 1125 | .691% |
-
-| ***user*** | ***review COUNT*** | ***% total 326*** |
-| --- | --- | --- |
-| rphair | 264 | 80.981% |
-| Ryun1 | 32 | 9.815% |
-| perturbing | 30 | 9.202% |
-
-### [All users except CIP editors](reviews-non-eds.md)
-
-```bash
-curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-monthly/reviews.txt \
-  | grep ^2026-08 \
-  | awk '$2 !~ /^(rphair|Ryun1|perturbing)$/' \
-  | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report) \
-  > reviews-non-eds.md
-```
 | ***user*** | ***review SIZE*** | ***% total 160782*** |
 | --- | --- | --- |
 | paweljakubas | 16331 | 10.157% |
@@ -126,14 +93,3 @@ curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/ma
 | Cerkoryn | 1 | .338% |
 | ana-pantilie | 1 | .338% |
 | adavault-ops | 1 | .338% |
-
-### [All users](reviews.md)
-
-```bash
-curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-monthly/reviews.txt \
-  | grep ^2026-08 \
-  | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report) \
-  > reviews.md
-```
-
-(see link for full listing)
