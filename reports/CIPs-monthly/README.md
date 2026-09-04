@@ -5,7 +5,8 @@ To save space on GitHub — because the huge `reviews.txt` file (27K+ text lines
 Therefore, a report for any month can be extracted (or any of the reports here verified) by running a command like this, as explained in [README > Generating reports from shared data](https://github.com/rphair/repo-review-stats#generating-reports-from-shared-data) ([`gh` / GitHub CLI](https://github.com/cli/cli#github-cli) must be installed):
 
 ```bash
-curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-monthly/reviews.txt \
+curl -s \
+  https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-monthly/reviews.txt \
   | grep ^2026-08 \
   | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report)
 ```
