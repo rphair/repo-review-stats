@@ -1,6 +1,6 @@
 ## CIPs repo review stats - monthly - August 2026
 
-To verify results, copy & run any command below.  Date boundaries are in UTC.
+To verify results, copy and run any command below.  Date boundaries are in UTC.
 
 ### [CIP editors only](reviews-editors.md)
 
