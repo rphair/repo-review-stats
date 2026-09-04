@@ -157,9 +157,9 @@ Note: this is why the `created_at` date was chosen to list as the review date; b
 * the production of review sets for multiple intervals (in general, done at different times) will never have a review items appearing in more than one set;
 * any partial or complete review set prepared at a later time will only have new items (listed in chronological order) appearing at the end.
 
-### FAQ
+## FAQ
 
-#### Why `gh`?
+### Why `gh`?
 
 i.e. _Why is this scripted on top of [GitHub CLI](https://github.com/cli/cli#github-cli) rather than constructing API calls using a Javascript-like language + [`octokit`](https://github.com/octokit/octokit.js) to use the GitHub API more canonically?_
 
@@ -178,7 +178,7 @@ i.e. _Why is this scripted on top of [GitHub CLI](https://github.com/cli/cli#git
 **Distribution of API access**: Each user must use their own (or their project's) GitHub token, which avoids [potentially limited bandwidth](https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api?apiVersion=2026-03-10#about-authentication) they would have from a publicly shared token that one might have on a typical "scraper" web site... or would have by running these scripts through GitHub workflow automation, which can impose very strict bandwidth limitations.
 * As recommended by GitHub, [authenticated access to GitHub API provides the highest rate limit](https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api?apiVersion=2026-03-10#about-authentication) and is less likely to get stuck (or fail).
 
-#### Why aren't Discussions included?
+### Why aren't Discussions included?
 
 At this time [GitHub Discussions](https://docs.github.com/en/discussions) are [not common on this repo's reference project](https://github.com/cardano-foundation/CIPs/discussions) and generally don't correpond to our standards deliverable: rather, they are mainly about processes themselves, or "meta" to our repository.
 
