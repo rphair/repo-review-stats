@@ -15,7 +15,7 @@ with:
 * the `grep` argument updated for the target month
 * (optional) a line in the middle to filter for or against the current list of [CIP editors](https://github.com/cardano-foundation/CIPs#editors) (also demonstrated at the README link above).
 
-For additional verification, the intermediate files (`slurp*` and `tmp*`) generated in each latest build of `reviews.txt` are also included & updated monthly here.
+For additional verification, the intermediate files (`slurp*` and `tmp*`) generated in each latest build of `reviews.txt` are also included & updated monthly here: generally in the same `git` commit, to ensure consistency.
 * The `slurp*` files are also huge but can be practically included here since these also will only be updated incrementally by `git`.
 * Auditors and other interested parties can verify that the full list of raw review data matches GitHub _and_ that each of these review items is included in the `reviews.txt` file.
 * If any comments are missing in the results, please file an [issue in this repo](https://github.com/rphair/repo-review-stats/issues) with the full URLs of any missing comments.
