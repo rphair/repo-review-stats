@@ -68,11 +68,12 @@ The Markdown result will have 2 tables of reviewers sorted by review SIZE and th
 
 Custom reports can also be generated from readily available data sets: to save the substantial time in data collection, to guarantee reproducibility, etc.
 
-For example, from the `reviews.txt` already posted here (with effective date shown on its last line): https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt
+For example, from the `reviews.txt` accumulated monthly for our reference repository here: https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-monthly/reviews.txt
 
 you can **pipe it directly to the report generator**:
 ```
-curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt \
+curl -s \
+  https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-monthly/reviews.txt \
   | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report)
 ```
 (keep in mind the current `bash` implementation of `rr-report` processes about 1000 lines per second, with 26875 lines in this file)
@@ -82,7 +83,8 @@ curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/ma
 
 ...or you can **filter for a date range** (in this case, the year from August 2025 through July 2026 inclusive):
 ```
-curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt \
+curl -s \
+  https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-monthly/reviews.txt \
   | awk '$1 > "2025-08" && $1 < "2026-08"' \
   | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report)
 ```
@@ -91,13 +93,15 @@ curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/ma
 
 ... and/or **filter for (and against) certain users** (in this case, current collaborators on the reference repository):
 ```
-curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt \
+curl -s \
+  https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-monthly/reviews.txt \
   | awk '$2 ~ /^(rphair|Ryun1|perturbing)$/' \
   | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report)
 ```
 ...with its complementary report (to identify top contributors _outside of_ a project team):
 ```
-curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-2026-08-02T20.31.51Z/reviews.txt \
+curl -s \
+  https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-monthly/reviews.txt \
   | awk '$2 !~ /^(rphair|Ryun1|perturbing)$/' \
   | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report)
 ```
