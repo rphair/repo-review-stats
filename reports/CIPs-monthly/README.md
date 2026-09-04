@@ -2,7 +2,7 @@
 
 To save space on GitHub — because the huge `reviews.txt` file (27K+ text lines and counting) is seen by `git` as mostly the same from month to month (only adding the new month + changed lines when any older comments are edited) — this file will live _here in this directory_ and the monthly subdirectories will use this same pathname every time as input data.
 
-Therefore, a report for any month can be extracted (or any of the reports here verified) by running a command like this, as explained in [README > Generating reports from shared data](https://github.com/rphair/repo-review-stats#generating-reports-from-shared-data) ([`gh` / GitHub CLI](https://github.com/cli/cli#github-cli) must be installed):
+Therefore, a report for any month can be extracted (or any of the reports here verified) by running a command like this, as explained in [README > Generating reports from shared data](https://github.com/rphair/repo-review-stats#generating-reports-from-shared-data):
 
 ```bash
 curl -s \
