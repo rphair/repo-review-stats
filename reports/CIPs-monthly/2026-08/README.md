@@ -1,6 +1,6 @@
 ## CIPs repo review stats - monthly - August 2026
 
-To verify results, ensure [`gh` (GitHub CLI)](https://github.com/cli/cli#github-cli) and then run any command below.
+To verify results, ensure [`gh` (GitHub CLI)](https://github.com/cli/cli#github-cli) is installed and then run any command below.
 
 ### [CIP editors only](reviews-editors.md)
 
