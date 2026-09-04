@@ -1,4 +1,8 @@
-## Project review snapshots, subsets, and sample reports
+## Monthly reports
+
+See the relevant subfolder ([CIPs-monthly](CIPs-monthly) for our reference repository).
+
+## Testing & project review snapshots
 
 Subfolders here are named `<repo-name>` + `-` + `UTCdate`: with date formatted as on last line of collected data = the date of the repo's last posting (approximately the current date).
 
