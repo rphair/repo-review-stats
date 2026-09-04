@@ -5,7 +5,7 @@
 ```bash
 curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/reports/CIPs-monthly/reviews.txt \
   | grep ^2026-08 \
-  | awk '$2 !~ /^(rphair|Ryun1|perturbing)$/' \
+  | awk '$2 ~ /^(rphair|Ryun1|perturbing)$/' \
   | bash <(curl -s https://raw.githubusercontent.com/rphair/repo-review-stats/refs/heads/main/rr-report) \
   > reviews-editors.md
 ```
