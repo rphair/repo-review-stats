@@ -12,7 +12,7 @@ curl -s \
 ```
 
 with:
-* the `grep` argument updated for the target month (or any range of dates using `awk` as explained at link above)
+* the `grep` argument updated for the target month (or any range of dates using `awk` as shown at link above);
 * (optional) a line in the middle to filter for or against the current list of [CIP editors](https://github.com/cardano-foundation/CIPs#editors) (also demonstrated at the README link above).
 
 For additional verification, the intermediate files (`slurp*` and `tmp*`) generated in each latest build of `reviews.txt` are also included & updated monthly here: generally in the same `git` commit, to ensure consistency.
