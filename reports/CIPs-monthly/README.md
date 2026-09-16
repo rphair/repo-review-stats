@@ -1,6 +1,6 @@
 ## CIPs repo review stats - monthly
 
-**TL;DR** see latest report: [**August 2026**](./2026-08)
+**TL;DR** — See latest report: [**August 2026**](./2026-08)
 
 To save space on GitHub — because the huge `reviews.txt` file (27500+ text lines as of August 2026) is seen by `git` as mostly the same from month to month (only adding the new month + changed lines when any older comments are edited) — this file will live _here in this directory_ and the monthly subdirectories will use this same pathname every time as input data.
 
